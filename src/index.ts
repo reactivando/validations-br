@@ -1,3 +1,4 @@
+/* eslint-disable */
 export const getValidTelefone = (value: string): boolean => {
   const regex = /^[1-9]{2}9?[1-9]\d{7}$/;
   const telefone = value.replace(/\D/g, '');
