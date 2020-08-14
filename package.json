@@ -4,8 +4,8 @@
   "description": "A validator to BR informations",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "repository": "https://github.com/AZagatti/validations-br.git",
-  "homepage": "https://github.com/AZagatti/validations-br#readme",
+  "repository": "https://github.com/reactivando/validations-br.git",
+  "homepage": "https://github.com/reactivando/validations-br#readme",
   "author": "Reactivando <reactivando2@gmail.com>",
   "keywords": [
     "BR",
