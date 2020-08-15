@@ -100,11 +100,13 @@ describe('Validate Email', () => {
     expect(validateIE('2486829544', 'al')).toBe(false);
   });
   it('should be able return false to invalid AP IE', () => {
-    expect.assertions(3);
+    expect.assertions(5);
 
     expect(validateIE('032919196', 'ap')).toBe(false);
     expect(validateIE('044270221', 'ap')).toBe(false);
-    expect(validateIE('0342702211', 'ap')).toBe(false);
+    expect(validateIE('034270229', 'ap')).toBe(false);
+    expect(validateIE('030000029', 'ap')).toBe(false);
+    expect(validateIE('030170029', 'ap')).toBe(false);
   });
   it('should be able return false to invalid AM IE', () => {
     expect(validateIE('91.705.015-00', 'am')).toBe(false);
