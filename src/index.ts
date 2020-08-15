@@ -7,3 +7,4 @@ export { validateCPF } from './validations/validateCPF';
 export { validateIE } from './validations/ie';
 export { validatePIS } from './validations/validatePIS';
 export { validateIsEmpty } from './validations/validateIsEmpty';
+export { whichCountryBarcode } from './validations/whichCountryBarcode';
