@@ -106,6 +106,20 @@ const uf = 'SP';
 const isValid = validateUF(uf);
 ```
 
+# Contributing
+
+Feel free to contribute to the project. We only ask that:
+
+ - Fork it (https://github.com/reactivando/validations-br/fork)
+ - Create your feature branch (git checkout -b feature/fooBar)
+ - Write tests for the new feature or bug fix that you are solving
+ - Commit your changes (git commit -am 'feat: add some fooBar')
+ - Follow the commit conventions of [conventional-changelog](https://github.com/ajoslin/conventional-changelog) described in 
+[conventional-conventions](https://github.com/ajoslin/conventional-changelog/blob/master/conventions/angular.md)
+ - Push to the branch (git push origin feature/fooBar)
+ - Ensure all tests pass before send the pull-request (Use: `$ yarn test` or `$ npm run test`)
+ - Create a new Pull Request
+
 # Author
 
 - André Zagatti [@azagatti](https://linkedin.com/in/andre-zagatti/)
