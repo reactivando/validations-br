@@ -1,8 +1,5 @@
-export function validateCep(value: string): boolean {
+export const validateCep = (() => {
   const regex = /^\d{5}-\d{3}$/;
-  const cep = value;
-  if (regex.test(cep)) {
-    return Boolean(cep);
-  }
-  return false;
-}
+
+  return (cep: string) => typeof cep === 'string' && regex.test(cep);
+})();
