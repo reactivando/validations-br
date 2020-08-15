@@ -36,6 +36,24 @@ yarn add validations-br
 
 # Usage
 
+## useValidationsBR
+
+### Parâmetros
+
+| Key            | Type             | Default | Description                                                                                                                                                                                                                                                                                                                                    |
+| -------------- | ---------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`          | `cnpj` | `cpf` | `cep` | `email` | `pis` | `phone` | `uf`         |         | Type of data to be validated
+
+| `value`          | string         |         | Value that will be validated
+
+```js
+import { useValidationsBR } from 'validations-br';
+// const { useValidationsBR } = require('validations-br');
+
+const cnpj = '09.015.844/0001-80';
+const isValid = useValidationsBR('cnpj', cnpj);
+```
+
 ## Validate CNPJ
 
 ```js
