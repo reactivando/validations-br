@@ -39,7 +39,8 @@ yarn add validations-br
 ## Validate CNPJ
 
 ```js
-const { validateCNPJ } = require('validations-br');
+import { validateCNPJ } from 'validations-br';
+// const { validateCNPJ } = require('validations-br');
 
 const cnpj = '09.015.844/0001-80';
 const isValid = validateCNPJ(cnpj);
@@ -48,7 +49,8 @@ const isValid = validateCNPJ(cnpj);
 ## Validate CPF
 
 ```js
-const { validateCPF } = require('validations-br');
+import { validateCPF } from 'validations-br';
+// const { validateCPF } = require('validations-br');
 
 const cpf = '370.785.180-04';
 const isValid = validateCPF(cpf);
@@ -57,7 +59,8 @@ const isValid = validateCPF(cpf);
 ## Validate State Registration
 
 ```js
-const { validateIE } = require('validations-br');
+import { validateIE } from 'validations-br';
+// const { validateIE } = require('validations-br');
 
 const ie = '535.371.880.779';
 const isValid = validateIE(ie, 'sp');
@@ -66,7 +69,8 @@ const isValid = validateIE(ie, 'sp');
 ## Validate PIS
 
 ```js
-const { validatePIS } = require('validations-br');
+import { validatePIS } from 'validations-br';
+// const { validatePIS } = require('validations-br');
 
 const pis = '833.28281.34-7';
 const isValid = validatePIS(pis);
@@ -75,7 +79,8 @@ const isValid = validatePIS(pis);
 ## Validate Phone
 
 ```js
-const { validatePhone } = require('validations-br');
+import { validatePhone } from 'validations-br';
+// const { validatePhone } = require('validations-br');
 
 const phone = '(14) 99767-9472';
 const isValid = validatePhone(phone);
@@ -85,7 +90,8 @@ const isValid = validatePhone(phone);
 ## Validate CEP
 
 ```js
-const { validateCEP } = require('validations-br');
+import { validateCEP } from 'validations-br';
+// const { validateCEP } = require('validations-br');
 
 const cep = '17280-000';
 const isValid = validateCEP(cep);
@@ -94,7 +100,8 @@ const isValid = validateCEP(cep);
 ## Validate UF
 
 ```js
-const { validateUF } = require('validations-br');
+import { validateUF } from 'validations-br';
+// const { validateUF } = require('validations-br');
 
 const uf = 'SP';
 const isValid = validateUF(uf);
@@ -105,7 +112,8 @@ const isValid = validateUF(uf);
 ## Validate E-mail
 
 ```js
-const { validateEmail } = require('validations-br');
+import { validateEmail } from 'validations-br';
+// const { validateEmail } = require('validations-br');
 
 const email = 'johndoe@gmail.com';
 const isValid = validateEmail(email);
@@ -125,9 +133,11 @@ Feel free to contribute to the project. We only ask that:
  - Ensure all tests pass before send the pull-request (Use: `$ yarn test` or `$ npm run test`)
  - Create a new Pull Request
 
-# Author
+# Authors
 
 - André Zagatti [@azagatti](https://linkedin.com/in/andre-zagatti/)
+
+- Ariel Franco [@arielff3](https://www.linkedin.com/in/ariel-franco-ferreira-37b42b17a/)
 
 # License
 MIT © [Reactivando](https://github.com/reactivando)
