@@ -34,13 +34,13 @@ Com yarn:
 yarn add validations-br
 ```
 
-# Usage
+# Como usar
 
 ## useValidationsBR
 
 ### Parâmetros
 
-| Key | Type | Description |
+| Chave | Tipo | Descrição |
 | :---         |     :---:      |          ---: |
 | type  | `cnpj \| cpf  \| cep \| email \| pis \| phone \| uf` | Tipo de dados que serão validados |
 | value | `string` | Valor que será validado |
