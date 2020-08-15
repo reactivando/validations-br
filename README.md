@@ -100,7 +100,7 @@ const isValid = validateCEP(cep);
 ## Validar UF
 
 ```js
-import { validateCEP } from 'validations-br';
+import { validateUF } from 'validations-br';
 // const { validateUF } = require('validations-br');
 
 const uf = 'SP';
@@ -112,7 +112,7 @@ const isValid = validateUF(uf);
 ## Validar E-mail
 
 ```js
-import { validateCEP } from 'validations-br';
+import { validateEmail } from 'validations-br';
 // const { validateEmail } = require('validations-br');
 
 const email = 'johndoe@gmail.com';
@@ -134,7 +134,7 @@ Fique a vontade para contribuir com o projeto. Nós só pedimos para que:
  - Tenha certeza que os testes passaram antes de abrir a pull-request (Use: `$ yarn test` or `$ npm run test`)
  - Crie uma nova Pull Request
 
-# Autor
+# Autores
 
 - André Zagatti [@azagatti](https://linkedin.com/in/andre-zagatti/)
 
