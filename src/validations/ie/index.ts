@@ -58,5 +58,8 @@ export const validateIE = (() => {
     to: validations.validateTO,
   };
 
-  return (ie: string, uf: keyof typeof validationFns) => validationFns[uf](ie);
+  const keys = Object.keys(validationFns);
+
+  return (ie: string, uf: keyof typeof validationFns) =>
+    typeof uf === 'string' && keys.includes(uf) && validationFns[uf](ie);
 })();

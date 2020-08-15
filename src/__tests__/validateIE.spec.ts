@@ -90,6 +90,27 @@ describe('Validate Email', () => {
    * False assetions
    */
 
+  it('should return false for invalid state', () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const invalidState: any[] = [
+      'XX',
+      'yY',
+      'Zz',
+      'a',
+      NaN,
+      {},
+      0,
+      ['1'],
+      String,
+    ];
+
+    expect.assertions(invalidState.length);
+
+    invalidState.forEach(state =>
+      expect(validateIE('01.132.538/779-100', state)).toBe(false),
+    );
+  });
+
   it('should be able return false to invalid AC IE', () => {
     expect.assertions(2);
 
