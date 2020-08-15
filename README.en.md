@@ -4,12 +4,12 @@
 
 
 <h3 align="center">
-  Validações de forma fácil ✅
+  Easy validations ✅
 </h3>
 
 <br />
 
-Leia isso em outras línguas: [English](https://github.com/reactivando/validations-br/blob/master/README.en.md)
+Read this in other languages: [Portuguese](https://github.com/reactivando/validations-br/blob/master/README.md)
 
 <div align="center">
 
@@ -19,24 +19,24 @@ Leia isso em outras línguas: [English](https://github.com/reactivando/validatio
 
 </div>
 
-# Visão geral
+# Overview
 
-Validations BR é um cinto de ferramentas de funções para validar documentos padrões no Brasil e mais.
+Validations BR is a function tool belt for validating standard documents in Brazil and more.
 
-# Instalação
+# Installation
 
-Com npm:
+With npm:
 ```bash
 npm install validations-br
 ``` 
-Com yarn:
+With yarn:
 ```bash
 yarn add validations-br
 ```
 
 # Usage
 
-## Validar CNPJ
+## Validate CNPJ
 
 ```js
 const { validateCNPJ } = require('validations-br');
@@ -45,7 +45,7 @@ const cnpj = '09.015.844/0001-80';
 const isValid = validateCNPJ(cnpj);
 ```
 
-## Validar CPF
+## Validate CPF
 
 ```js
 const { validateCPF } = require('validations-br');
@@ -54,7 +54,7 @@ const cpf = '370.785.180-04';
 const isValid = validateCPF(cpf);
 ```
 
-## Validar Inscrição Estadual
+## Validate State Registration
 
 ```js
 const { validateIE } = require('validations-br');
@@ -63,7 +63,7 @@ const ie = '535.371.880.779';
 const isValid = validateIE(ie, 'sp');
 ```
 
-## Validar PIS/PASEP
+## Validate PIS
 
 ```js
 const { validatePIS } = require('validations-br');
@@ -72,7 +72,7 @@ const pis = '833.28281.34-7';
 const isValid = validatePIS(pis);
 ```
 
-## Validar Telefone
+## Validate Phone
 
 ```js
 const { validatePhone } = require('validations-br');
@@ -81,7 +81,8 @@ const phone = '(14) 99767-9472';
 const isValid = validatePhone(phone);
 ```
 
-## Validar CEP
+
+## Validate CEP
 
 ```js
 const { validateCEP } = require('validations-br');
@@ -90,7 +91,7 @@ const cep = '17280-000';
 const isValid = validateCEP(cep);
 ```
 
-## Validar UF
+## Validate UF
 
 ```js
 const { validateUF } = require('validations-br');
@@ -99,9 +100,9 @@ const uf = 'SP';
 const isValid = validateUF(uf);
 ```
 
-## Bônus
+## Bonus
 
-## Validar E-mail
+## Validate E-mail
 
 ```js
 const { validateEmail } = require('validations-br');
@@ -110,24 +111,23 @@ const email = 'johndoe@gmail.com';
 const isValid = validateEmail(email);
 ```
 
+# Contributing
 
-# Como contribuir
+Feel free to contribute to the project. We only ask that:
 
-Fique a vontade para contribuir com o projeto. Nós só pedimos para que:
-
- - Dê fork (https://github.com/reactivando/validations-br/fork)
- - Crie sua branch da feature/fix (git checkout -b feature/fooBar)
- - Escreva os testes para a nova feature ou do bug fix resolvido
- - Faça o commit das mudanças (git commit -am 'feat: add some fooBar')
- - Siga os padrões de commit [conventional-changelog](https://github.com/ajoslin/conventional-changelog) descritos em 
+ - Fork it (https://github.com/reactivando/validations-br/fork)
+ - Create your feature branch (git checkout -b feature/fooBar)
+ - Write tests for the new feature or bug fix that you are solving
+ - Commit your changes (git commit -am 'feat: add some fooBar')
+ - Follow the commit conventions of [conventional-changelog](https://github.com/ajoslin/conventional-changelog) described in 
 [conventional-conventions](https://github.com/ajoslin/conventional-changelog/blob/master/conventions/angular.md)
- - Dê push dá branch para seu repositório (git push origin feature/fooBar)
- - Tenha certeza que os testes passaram antes de abrir a pull-request (Use: `$ yarn test` or `$ npm run test`)
- - Crie uma nova Pull Request
+ - Push to the branch (git push origin feature/fooBar)
+ - Ensure all tests pass before send the pull-request (Use: `$ yarn test` or `$ npm run test`)
+ - Create a new Pull Request
 
-# Autor
+# Author
 
 - André Zagatti [@azagatti](https://linkedin.com/in/andre-zagatti/)
 
-# Licença
+# License
 MIT © [Reactivando](https://github.com/reactivando)
