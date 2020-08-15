@@ -40,11 +40,10 @@ yarn add validations-br
 
 ### Parâmetros
 
-| Key            | Type             | Default | Description                                                                                                                                                                                                                                                                                                                                    |
-| -------------- | ---------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `type`          | `cnpj` | `cpf` | `cep` | `email` | `pis` | `phone` | `uf`         |         | Tipo de dados que serão validados 
-
-| `value`          | string         |         | Valor que será validado
+| Key | Type | Description |
+| :---         |     :---:      |          ---: |
+| type  | `cnpj \| cpf  \| cep \| email \| pis \| phone \| uf` | Tipo de dados que serão validados |
+| value | `string` | Valor que será validado |
 
 ```js
 import { useValidationsBR } from 'validations-br';
