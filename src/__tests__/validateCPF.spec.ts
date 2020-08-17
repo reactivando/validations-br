@@ -16,7 +16,6 @@ describe('Validate CPF', () => {
     expect(validateCPF('248.283.728-66')).toBe(false);
     expect(validateCPF('425.719.798-04')).toBe(false);
     expect(validateCPF('012.345.678-91')).toBe(false);
-
   });
 
   it('should be able return false to pass a empty string', () => {

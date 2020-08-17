@@ -10,17 +10,14 @@ export const mod11: (v: string, l?: number) => number = (
   clearValue: string,
   limite?: number,
 ) => {
-const valor = String(clearValue).replace(/\D/g, '');
-let sum = 0;
-let mult = 2;
+  const valor = String(clearValue).replace(/\D/g, '');
+  let sum = 0;
+  let mult = 2;
 
-    for(let i = valor.length-1; i >= 0; i-- ) {
-        sum += (
-            mult * (+valor[i])
-        );
-      if(++mult > (limite || valor.length - 1)) mult = 2;
-    }
-    const dv = ((sum * 10) % 11) % 10;
-    return dv;
+  for (let i = valor.length - 1; i >= 0; i--) {
+    sum += mult * +valor[i];
+    if (++mult > (limite || valor.length - 1)) mult = 2;
+  }
+  const dv = ((sum * 10) % 11) % 10;
+  return dv;
 };
-  
