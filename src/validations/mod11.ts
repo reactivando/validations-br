@@ -15,9 +15,9 @@ export const mod11: (v: string, l: number) => number = (
 
   for (let i = valor.length - 1; i >= 0; i--) {
     sum += mult * +valor[i];
-    if (++mult > limite){
-      mult = 2
-    };
+    if (++mult > limite) {
+      mult = 2;
+    }
   }
   const dv = ((sum * 10) % 11) % 10;
   return dv;

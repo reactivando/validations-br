@@ -22,8 +22,6 @@ export function validateCPF(value: string): boolean {
   const clearValue = String(value).replace(/\D/g, '');
   // O CPF possui 2 DVs, excluíndo para validar
   const valWithoutDvs = clearValue.substring(0, clearValue.length - 2);
-  const sum = 0;
-  let rest;
   // Valida se está vazio ou é valor repetido
   if (!clearValue || isRepeated(clearValue)) {
     return false;
