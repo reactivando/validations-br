@@ -40,10 +40,10 @@ yarn add validations-br
 
 ### Parâmetros
 
-| Chave | Tipo | Descrição |
-| :---         |     :---:      |          ---: |
+| Chave |                         Tipo                         |                         Descrição |
+| :---- | :--------------------------------------------------: | --------------------------------: |
 | type  | `cnpj \| cpf  \| cep \| email \| pis \| phone \| uf` | Tipo de dados que serão validados |
-| value | `string` | Valor que será validado |
+| value |                       `string`                       |           Valor que será validado |
 
 ```js
 import { useValidationsBR } from 'validations-br';
@@ -136,6 +136,45 @@ const email = 'johndoe@gmail.com';
 const isValid = validateEmail(email);
 ```
 
+# Integrações
+
+## Com Yup
+
+```js
+import { validateCNPJ } from "validations-br";
+import * as Yup from "yup";
+
+try {
+  const schema = Yup.string().test(
+    "is-cnpj",
+    "CNPJ is not valid",
+    (value) => validateCNPJ(value)
+  );
+  
+  await schema.validate(cnpj);
+} catch(err) {
+  console.log(err.message);
+}
+```
+
+## Com Joi
+
+```js
+import { validateCNPJ } from "validations-br";
+import Joi from "joi";
+
+try {
+  const schema = Joi.string().custom(validateCNPJ, "Validate CNPJ");
+
+  const { value } = schema.validate(cnpj);
+
+  if (!value) {
+    throw Error("CNPJ is not valid");
+  }
+} catch(err) {
+  console.log(err.message);
+}
+```
 
 # Como contribuir
 
