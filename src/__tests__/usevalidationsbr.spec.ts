@@ -36,15 +36,14 @@ describe('UseValidationBr CNPJ', () => {
 });
 
 describe('UseValidationBr CPF', () => {
-  it('should be able return true to valid CNPJ', () => {
+  it('should be able return true to valid CPF', () => {
     expect.assertions(3);
-
     expect(useValidationsBR('cpf', '248.283.728-65')).toBe(true);
     expect(useValidationsBR('cpf', '241.845.620-00')).toBe(true);
     expect(useValidationsBR('cpf', '551.137.567-50')).toBe(true);
   });
 
-  it('should be able return false to invalid CNPJ', () => {
+  it('should be able return false to invalid CPF', () => {
     expect.assertions(2);
 
     expect(useValidationsBR('cpf', '248.283.728-66')).toBe(false);
