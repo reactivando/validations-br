@@ -5,10 +5,7 @@
  * Para CPF assume o valor de 12, para CNPJ o valor de 9.
  * @returns Retorna o DV calculado
  */
-export const mod11: (v: string, l: number) => number = (
-  clearValue: string,
-  limite: number,
-) => {
+export const mod11 = (clearValue: string, limite: number): number => {
   const valor = String(clearValue).replace(/\D/g, '');
   let sum = 0;
   let mult = 2;

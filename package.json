@@ -1,6 +1,6 @@
 {
   "name": "validations-br",
-  "version": "1.0.4",
+  "version": "1.2.0",
   "description": "A validator to BR informations",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -18,7 +18,7 @@
   ],
   "scripts": {
     "build": "tsc",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src",
     "test": "jest",
     "prepare": "npm run build && husky install",
