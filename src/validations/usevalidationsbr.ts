@@ -5,9 +5,10 @@ import { validateUF } from './validateUF';
 import { validateCNPJ } from './validateCNPJ';
 import { validateCPF } from './validateCPF';
 import { validatePIS } from './validatePIS';
+import { validateCNH } from './validateCNH';
 
 export const useValidationsBR = (
-  type: 'cnpj' | 'cpf' | 'cep' | 'email' | 'pis' | 'phone' | 'uf',
+  type: 'cnpj' | 'cpf' | 'cep' | 'email' | 'pis' | 'phone' | 'uf' | 'cnh',
   value: string,
 ): boolean => {
   let result = false;
@@ -27,6 +28,9 @@ export const useValidationsBR = (
     case 'pis':
       result = validatePIS(value);
       break;
+    case 'cnh':
+      result = validateCNH(value);
+      break;        
     case 'phone':
       result = validatePhone(value);
       break;
