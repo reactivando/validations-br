@@ -2,7 +2,7 @@ import { validateCNH } from '../index';
 
 describe('Validate CNH', () => {
   it('should be able return true to valid CNH', () => {
-    expect.assertions(4);
+    expect.assertions(3);
 
     expect(validateCNH('134621966-24')).toBe(true);
     expect(validateCNH('766232046-44')).toBe(true);
