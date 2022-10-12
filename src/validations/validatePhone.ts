@@ -16,27 +16,21 @@ export function validatePhone(phone: string): boolean {
   if (clearPhone.length > 9 && (clearPhone[0] === '0' || clearPhone[1] === '0'))
     return false;
 
-  // First character validation for phone number (no DDD code)
+  // First character validation for phone number
   if (
-    clearPhone.length === 8 &&
-    [2, 3, 4, 5, 7].indexOf(+clearPhone[0]) === -1
+    (clearPhone.length === 8 &&
+      [2, 3, 4, 5, 7].indexOf(+clearPhone[0]) === -1) ||
+    (clearPhone.length === 10 && [2, 3, 4, 5, 7].indexOf(+clearPhone[2]) === -1)
   ) {
     return false;
   }
 
-  // First character validation for phone number (with DDD code)
+  // First character validation for mobile number
   if (
-    clearPhone.length === 10 &&
-    [2, 3, 4, 5, 7].indexOf(+clearPhone[2]) === -1
-  ) {
+    (clearPhone.length === 9 && clearPhone[0] !== '9') ||
+    (clearPhone.length === 11 && clearPhone[2] !== '9')
+  )
     return false;
-  }
-
-  // First character validation for mobile number (no DDD code)
-  if (clearPhone.length === 9 && clearPhone[0] !== '9') return false;
-
-  // First character validation for mobile number (with DDD code)
-  if (clearPhone.length === 11 && clearPhone[2] !== '9') return false;
 
   return true;
 }
