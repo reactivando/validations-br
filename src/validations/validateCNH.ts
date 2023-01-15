@@ -8,6 +8,7 @@ export function validateCNH (value: string) {
   if (!clearValue || (clearValue.replace(new RegExp(clearValue[0], 'g'), '').trim().length === 0)) {
     return false;
   }
+  let v = 0;
   for (let i = 0, j = 9, v = 0; i < 9; ++i, --j) {
     v += +(value.charAt(i) * j);
   }
