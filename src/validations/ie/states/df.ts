@@ -23,9 +23,13 @@ export function validateDF(ie: string): boolean {
 
   const { length } = ieStr;
 
-  if (length !== 13) return false;
+  if (length !== 13) {
+    return false;
+  }
 
-  if (ieStr.substr(0, 2) !== '07') return false;
+  if (ieStr.substr(0, 2) !== '07' && ieStr.substr(0, 2) !== '08') {
+    return false;
+  }
 
   const body = ieStr.substr(0, length - 2);
 
