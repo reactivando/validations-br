@@ -5,6 +5,10 @@ describe('Validate Email', () => {
     expect(validateEmail('johndoe@email.com')).toBe(true);
   });
 
+  it('should be able return true to valid Email with custom domain', () => {
+    expect(validateEmail('johndoe@email.digital')).toBe(true);
+  });
+
   it('should be able return false to invalid Email', () => {
     expect(validateEmail('johndoe.email.com')).toBe(false);
   });
