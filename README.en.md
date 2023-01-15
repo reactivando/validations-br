@@ -9,13 +9,13 @@
 
 <br />
 
-Read this in other languages: [Portuguese](https://github.com/reactivando/validations-br/blob/master/README.md)
+Read this in other languages: [Portuguese](https://github.com/reactivando/validations-br/blob/main/README.md)
 
 <div align="center">
 
 [![npm](https://img.shields.io/npm/v/validations-br.svg?color=%23007ec6&style=plastic)](https://www.npmjs.com/package/validations-br)<space><space>
-[![Coverage Status](https://img.shields.io/coveralls/github/reactivando/validations-br?color=007ec6&style=plastic)](https://coveralls.io/github/reactivando/validations-br?branch=master)
-[![License](https://img.shields.io/github/license/reactivando/validations-br?color=007ec6&style=plastic)](https://github.com/reactivando/validations-br/blob/master/LICENSE)
+[![Coverage Status](https://img.shields.io/coveralls/github/reactivando/validations-br?color=007ec6&style=plastic)](https://coveralls.io/github/reactivando/validations-br?branch=main)
+[![License](https://img.shields.io/github/license/reactivando/validations-br?color=007ec6&style=plastic)](https://github.com/reactivando/validations-br/blob/main/LICENSE)
 
 </div>
 
@@ -185,7 +185,7 @@ Feel free to contribute to the project. We only ask that:
  - Write tests for the new feature or bug fix that you are solving
  - Commit your changes (git commit -am 'feat: add some fooBar')
  - Follow the commit conventions of [conventional-changelog](https://github.com/ajoslin/conventional-changelog) described in 
-[conventional-conventions](https://github.com/ajoslin/conventional-changelog/blob/master/conventions/angular.md)
+[conventional-conventions](https://github.com/ajoslin/conventional-changelog/blob/main/conventions/angular.md)
  - Push to the branch (git push origin feature/fooBar)
  - Ensure all tests pass before send the pull-request (Use: `$ yarn test` or `$ npm run test`)
  - Create a new Pull Request
