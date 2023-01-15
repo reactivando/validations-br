@@ -9,13 +9,13 @@
 
 <br />
 
-Leia isso em outras línguas: [English](https://github.com/reactivando/validations-br/blob/master/README.en.md)
+Leia isso em outras línguas: [English](https://github.com/reactivando/validations-br/blob/main/README.en.md)
 
 <div align="center">
 
 [![npm](https://img.shields.io/npm/v/validations-br.svg?color=%23007ec6&style=plastic)](https://www.npmjs.com/package/validations-br)<space><space>
-[![Coverage Status](https://img.shields.io/coveralls/github/reactivando/validations-br?color=007ec6&style=plastic)](https://coveralls.io/github/reactivando/validations-br?branch=master)
-[![License](https://img.shields.io/github/license/reactivando/validations-br?color=007ec6&style=plastic)](https://github.com/reactivando/validations-br/blob/master/LICENSE)
+[![Coverage Status](https://img.shields.io/coveralls/github/reactivando/validations-br?color=007ec6&style=plastic)](https://coveralls.io/github/reactivando/validations-br?branch=main)
+[![License](https://img.shields.io/github/license/reactivando/validations-br?color=007ec6&style=plastic)](https://github.com/reactivando/validations-br/blob/main/LICENSE)
 
 </div>
 
@@ -195,7 +195,7 @@ Fique a vontade para contribuir com o projeto. Nós só pedimos para que:
  - Escreva os testes para a nova feature ou do bug fix resolvido
  - Faça o commit das mudanças (git commit -am 'feat: add some fooBar')
  - Siga os padrões de commit [conventional-changelog](https://github.com/ajoslin/conventional-changelog) descritos em 
-[conventional-conventions](https://github.com/ajoslin/conventional-changelog/blob/master/conventions/angular.md)
+[conventional-conventions](https://github.com/ajoslin/conventional-changelog/blob/main/conventions/angular.md)
  - Dê push dá branch para seu repositório (git push origin feature/fooBar)
  - Tenha certeza que os testes passaram antes de abrir a pull-request (Use: `$ yarn test` or `$ npm run test`)
  - Crie uma nova Pull Request
