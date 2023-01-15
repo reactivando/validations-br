@@ -103,6 +103,15 @@ const phone = '(14) 99767-9472';
 const isValid = validatePhone(phone);
 ```
 
+## Validar CNH
+
+```js
+import { validateCNH } from 'validations-br';
+// const { validateCNH } = require('validations-br');
+
+const cnh = '134621966-24';
+const isValid = validateCNH(cnh);
+```
 
 ## Validate CEP
 
