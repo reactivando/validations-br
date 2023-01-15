@@ -6,4 +6,5 @@ export { validateCNPJ } from './validations/validateCNPJ';
 export { validateCPF } from './validations/validateCPF';
 export { validateIE } from './validations/ie';
 export { validatePIS } from './validations/validatePIS';
+export { validateCNH } from './validations/validateCNH';
 export { useValidationsBR } from './validations/usevalidationsbr';

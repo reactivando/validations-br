@@ -94,6 +94,16 @@ const pis = '833.28281.34-7';
 const isValid = validatePIS(pis);
 ```
 
+## Validar CNH
+
+```js
+import { validateCNH } from 'validations-br';
+// const { validateCNH } = require('validations-br');
+
+const cnh = '134621966-24';
+const isValid = validateCNH(cnh);
+```
+
 ## Validar Telefone
 
 ```js
