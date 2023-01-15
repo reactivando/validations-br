@@ -10,7 +10,7 @@ describe('Validate CEP', () => {
   it('should be able return false to invalid CEP', () => {
     const parameters = [
       '172800-0000',
-      '17280000',
+      '172800000',
       '172800-000',
       '17280-0000',
       '',
@@ -22,12 +22,10 @@ describe('Validate CEP', () => {
   });
 
   it('should return false for invalid parameter type', () => {
-    const parameters = [{}, [], 0, NaN, Boolean, true];
+    const parameters = [{}, [], 0, NaN, Boolean, true] as string[];
 
     expect.assertions(parameters.length);
 
-    parameters.forEach(parameter =>
-      expect(validateCep((parameter as unknown) as string)).toBe(false),
-    );
+    parameters.forEach(parameter => expect(validateCep(parameter)).toBe(false));
   });
 });
