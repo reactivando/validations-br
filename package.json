@@ -21,12 +21,11 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src",
     "test": "jest",
-    "prepare": "husky install",
+    "prepare": "npm run build && husky install",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
     "version": "npm run format && git add -A src",
-    "postversion": "git push && git push --tags",
-    "prepublish": "npm run build"
+    "postversion": "git push && git push --tags"
   },
   "devDependencies": {
     "@types/jest": "^26.0.22",
