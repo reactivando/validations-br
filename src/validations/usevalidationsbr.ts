@@ -30,7 +30,7 @@ export const useValidationsBR = (
       break;
     case 'cnh':
       result = validateCNH(value);
-      break;        
+      break;
     case 'phone':
       result = validatePhone(value);
       break;
