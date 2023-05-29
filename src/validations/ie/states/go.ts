@@ -5,9 +5,9 @@ export function validateGO(ie: string): boolean {
 
   if (length !== 9) return false;
 
-  const beginWith = ['10', '11', '15'];
+  const beginRegex = /^(1[015]|2[0-9])/;
   const begin = ieStr.substr(0, 2);
-  if (!(beginWith.indexOf(begin) >= 0)) return false;
+  if (!beginRegex.test(begin)) return false;
 
   const position = length - 1;
   let weight = length;
