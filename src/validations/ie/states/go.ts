@@ -5,7 +5,7 @@ export function validateGO(ie: string): boolean {
 
   if (length !== 9) return false;
 
-  const beginRegex = /^(1[015]|2[0-9])/;
+  const beginRegex = /^(1[01]|2[0-9])/;
   const begin = ieStr.substr(0, 2);
   if (!beginRegex.test(begin)) return false;
 
