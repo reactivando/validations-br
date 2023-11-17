@@ -30,6 +30,7 @@ describe('Validate Email', () => {
   });
   it('should be able return true to valid GO IE', () => {
     expect(validateIE('11.223.711-8', 'go')).toBe(true);
+    expect(validateIE('20.002.703-4', 'go')).toBe(true);
   });
   it('should be able return true to valid MA IE', () => {
     expect(validateIE('12351768-0', 'ma')).toBe(true);
