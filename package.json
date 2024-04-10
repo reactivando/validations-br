@@ -18,6 +18,7 @@
   ],
   "scripts": {
     "build": "tsc",
+    "coverage": "jest --coverage",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src",
     "test": "jest",
