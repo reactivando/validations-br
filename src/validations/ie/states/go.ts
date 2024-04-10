@@ -1,11 +1,14 @@
+import { extractNumericChars } from '../../../utils';
+
+const beginRegex = /^(1[01]|2[0-9])/;
+
 export function validateGO(ie: string): boolean {
-  const ieStr = String(ie).replace(/\D/g, '');
+  const ieStr = extractNumericChars(ie);
 
   const { length } = ieStr;
 
   if (length !== 9) return false;
 
-  const beginRegex = /^(1[01]|2[0-9])/;
   const begin = ieStr.substr(0, 2);
   if (!beginRegex.test(begin)) return false;
 

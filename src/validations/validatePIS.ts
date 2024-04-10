@@ -1,5 +1,7 @@
+import { extractNumericChars, generateRervedNumbers } from '../utils';
+
 function generateChecksum(base: string | number, weight: number[]): number {
-  const digits = String(base).replace(/[^\d]/g, '');
+  const digits = extractNumericChars(String(base));
 
   return digits
     .split('')
@@ -8,21 +10,11 @@ function generateChecksum(base: string | number, weight: number[]): number {
 
 const weights = [3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
 
-const reservedNumbers = [
-  '00000000000',
-  '11111111111',
-  '22222222222',
-  '33333333333',
-  '44444444444',
-  '55555555555',
-  '66666666666',
-  '77777777777',
-  '88888888888',
-  '99999999999',
-];
+// gera apenas uma vez um array com ['00000000000', ... , '99999999999'];
+const reservedNumbers = generateRervedNumbers(11);
 
 export function validatePIS(pis: string): boolean {
-  const pisStr = String(pis).replace(/\D/g, '');
+  const pisStr = extractNumericChars(pis);
 
   const numeric = pisStr.replace(/[ ().,*-]/g, '');
 

@@ -1,3 +1,5 @@
+import { extractNumericChars } from '../../../utils';
+
 function getModule(ie: string): number {
   let pos = 0;
   if (ie.length === 9) {
@@ -27,7 +29,7 @@ function calcDigit(body: string, mod: number): number {
 }
 
 export function validateBA(ie: string): boolean {
-  const ieStr = String(ie).replace(/\D/g, '');
+  const ieStr = extractNumericChars(ie);
 
   const { length } = ieStr;
 

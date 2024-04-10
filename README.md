@@ -193,6 +193,7 @@ Fique a vontade para contribuir com o projeto. Nós só pedimos para que:
  - Dê fork (https://github.com/reactivando/validations-br/fork)
  - Crie sua branch da feature/fix (git checkout -b feature/fooBar)
  - Escreva os testes para a nova feature ou do bug fix resolvido
+ - Certifique-se que a cobertura do novo código está ok (Use: `$ yarn run coverage` or `$ npm run coverage`)
  - Faça o commit das mudanças (git commit -am 'feat: add some fooBar')
  - Siga os padrões de commit [conventional-changelog](https://github.com/ajoslin/conventional-changelog) descritos em 
 [conventional-conventions](https://github.com/ajoslin/conventional-changelog/blob/main/conventions/angular.md)

@@ -1,5 +1,7 @@
+import { extractNumericChars } from '../../../utils';
+
 export function validateCE(ie: string): boolean {
-  const ieStr = String(ie).replace(/\D/g, '');
+  const ieStr = extractNumericChars(ie);
 
   const { length } = ieStr;
 

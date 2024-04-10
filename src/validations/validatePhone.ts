@@ -1,6 +1,10 @@
+import { extractNumericChars } from '../utils';
+
+const sameCharacterRegexp = /^(.)\1*$/;
+
 export function validatePhone(phone: string): boolean {
-  const clearPhone = phone.replace(/\D/g, '');
-  const sameCharacterRegexp = /^(.)\1*$/;
+  const clearPhone = extractNumericChars(phone);
+
   if (!(clearPhone.length >= 8 && clearPhone.length <= 11)) {
     return false;
   }

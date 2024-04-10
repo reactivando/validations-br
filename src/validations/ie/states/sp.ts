@@ -1,3 +1,5 @@
+import { extractNumericChars } from '../../../utils';
+
 function calcFirstDigit(ie: string): number {
   const body = ie.substr(0, 8);
   const weight = [1, 3, 4, 5, 6, 7, 8, 10];
@@ -30,7 +32,7 @@ function calcSecondDigit(ie: string): number {
 }
 
 export function validateSP(ie: string): boolean {
-  const ieStr = String(ie).replace(/\D/g, '');
+  const ieStr = extractNumericChars(ie);
 
   if (ieStr.length !== 12) return false;
 

@@ -11,33 +11,16 @@ export const useValidationsBR = (
   type: 'cnpj' | 'cpf' | 'cep' | 'email' | 'pis' | 'phone' | 'uf' | 'cnh',
   value: string,
 ): boolean => {
-  let result = false;
-  switch (type) {
-    case 'cnpj':
-      result = validateCNPJ(value);
-      break;
-    case 'cpf':
-      result = validateCPF(value);
-      break;
-    case 'cep':
-      result = validateCep(value);
-      break;
-    case 'email':
-      result = validateEmail(value);
-      break;
-    case 'pis':
-      result = validatePIS(value);
-      break;
-    case 'cnh':
-      result = validateCNH(value);
-      break;
-    case 'phone':
-      result = validatePhone(value);
-      break;
-    case 'uf':
-      result = validateUF(value);
-      break;
-    default:
-  }
-  return result;
+  // recupera a função a ser chamada
+  const fn = {
+    cnpj: validateCNPJ,
+    cpf: validateCPF,
+    cep: validateCep,
+    email: validateEmail,
+    pis: validatePIS,
+    phone: validatePhone,
+    uf: validateUF,
+    cnh: validateCNH,
+  }[type];
+  return fn && fn(value);
 };

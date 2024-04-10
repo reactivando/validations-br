@@ -1,3 +1,5 @@
+import { extractNumericChars } from '../../../utils';
+
 function calcFirstDigit(ie: string): number {
   const body = ie.slice(0, 3) + 0 + ie.slice(3);
   let concat = '';
@@ -36,7 +38,7 @@ function calcSecondDigit(body: string): number {
 }
 
 export function validateMG(ie: string): boolean {
-  const ieStr = String(ie).replace(/\D/g, '');
+  const ieStr = extractNumericChars(ie);
 
   const { length } = ieStr;
 

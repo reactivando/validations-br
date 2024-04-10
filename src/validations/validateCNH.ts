@@ -1,10 +1,12 @@
+import { extractNumericChars } from '../utils';
+
 /**
  * Valida a CNH. A entrada pode ser com ou sem máscaras.
  * O tamanho deve ser respeitado como em '000000000-00' ou '00000000000'.
  * @param value
  */
 export function validateCNH(value: string) {
-  const clearValue = String(value).replace(/\D/g, '');
+  const clearValue = extractNumericChars(value);
   if (
     !clearValue ||
     clearValue.replace(new RegExp(clearValue[0], 'g'), '').trim().length === 0

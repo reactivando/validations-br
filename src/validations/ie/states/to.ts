@@ -1,3 +1,5 @@
+import { extractNumericChars } from '../../../utils';
+
 function calcDigit(ie: string): boolean {
   const { length } = ie;
   const position = length - 1;
@@ -60,7 +62,7 @@ function checkNew(ie: string): boolean {
 }
 
 export function validateTO(ie: string): boolean {
-  const ieStr = String(ie).replace(/\D/g, '');
+  const ieStr = extractNumericChars(ie);
 
   if (![9, 11].includes(ieStr.length)) return false;
 

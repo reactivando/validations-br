@@ -1,3 +1,5 @@
+import { extractNumericChars } from '../../../utils';
+
 function calcDigit(body: string): number {
   let weight = body.length - 7;
   let sum = 0;
@@ -18,7 +20,7 @@ function calcDigit(body: string): number {
 }
 
 export function validateAC(ie: string): boolean {
-  const ieStr = String(ie).replace(/\D/g, '');
+  const ieStr = extractNumericChars(ie);
 
   if (ieStr.length !== 13) return false;
 

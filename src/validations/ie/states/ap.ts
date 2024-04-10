@@ -1,5 +1,7 @@
+import { extractNumericChars } from '../../../utils';
+
 export function validateAP(ie: string): boolean {
-  const ieStr = String(ie).replace(/\D/g, '');
+  const ieStr = extractNumericChars(ie);
 
   if (ieStr.length !== 9) return false;
 

@@ -1,4 +1,7 @@
-import { mod11 } from './mod11';
+import { extractNumericChars, mod11, generateRervedNumbers } from '../utils';
+
+// gera apenas uma vez um array com ['00000000000000', ... , '99999999999999'];
+const knownInvalidCNPJs = generateRervedNumbers(14);
 
 /**
  * Valida o CNPJ. A entrada pode ser com ou sem máscaras.
@@ -7,28 +10,15 @@ import { mod11 } from './mod11';
  * @returns True se o CNPJ é válido, falso caso contrário
  */
 export function validateCNPJ(value: string): boolean {
-  const clearValue = String(value).replace(/[^\d]+/g, '');
-  // Campo sem máscara
-  if (clearValue === '') return false;
+  const clearValue = extractNumericChars(value);
   // Tamanho diferente do exigido
   if (clearValue.length !== 14) return false;
   // Valores carteados já conhecidos como inválidos
-  if (
-    clearValue === '00000000000000' ||
-    clearValue === '11111111111111' ||
-    clearValue === '22222222222222' ||
-    clearValue === '33333333333333' ||
-    clearValue === '44444444444444' ||
-    clearValue === '55555555555555' ||
-    clearValue === '66666666666666' ||
-    clearValue === '77777777777777' ||
-    clearValue === '88888888888888' ||
-    clearValue === '99999999999999'
-  ) {
+  if (knownInvalidCNPJs.includes(clearValue)) {
     return false;
   }
   // O CNPJ possui 2 DVs, excluíndo para validar
-  const valWithoutDvs = clearValue.substring(0, clearValue.length - 2);
+  const valWithoutDvs = clearValue.substring(0, 12);
   const dv1 = mod11(valWithoutDvs, 9);
   const dv2 = mod11(valWithoutDvs + dv1, 9);
   // Compara com a informação passada como paramêtro
