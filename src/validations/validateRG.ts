@@ -3,11 +3,11 @@
  *
  * Um número válido:
  * - Deve incluir o dígito verificador.
- * - Deve conter 9 dígitos.
+ * - Deve conter 9 ou 11 dígitos.
  * - Gerar o mesmo dígito verificador com o que foi fornecido.
  * - Conter ou não separadores como pontos e traços.
  *
- * @param {string} value O número de RG contendo 9 dígitos, com ou sem separadores.
+ * @param {string} value O número de RG, com ou sem separadores.
  * @returns {boolean} `true` se o número estiver corretamente formatado e o dígito verificador
  * calculado for o mesmo do fornecido.
  */
@@ -19,7 +19,7 @@ export function validateRG(value: string): boolean {
 
   // Validando se existem 9 dígitos.
   const numbers = value.replace(/[^0-9]/g, '');
-  if (!numbers.match(/[0-9]{9}/g)) {
+  if (!numbers.match(/([0-9]{9}|[0-9]{11})/g)) {
     return false;
   }
 
