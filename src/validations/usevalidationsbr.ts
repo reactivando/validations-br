@@ -1,14 +1,26 @@
-import { validatePhone } from './validatePhone';
-import { validateEmail } from './validateEmail';
-import { validateCep } from './validateCep';
-import { validateUF } from './validateUF';
+import { validateCNH } from './validateCNH';
 import { validateCNPJ } from './validateCNPJ';
 import { validateCPF } from './validateCPF';
+import { validateCep } from './validateCep';
+import { validateEmail } from './validateEmail';
 import { validatePIS } from './validatePIS';
-import { validateCNH } from './validateCNH';
+import { validatePhone } from './validatePhone';
+import { validateRG } from './validateRG';
+import { validateUF } from './validateUF';
+
+type ValidatorType =
+  | 'cnpj'
+  | 'cpf'
+  | 'cep'
+  | 'email'
+  | 'pis'
+  | 'phone'
+  | 'uf'
+  | 'cnh'
+  | 'rg';
 
 export const useValidationsBR = (
-  type: 'cnpj' | 'cpf' | 'cep' | 'email' | 'pis' | 'phone' | 'uf' | 'cnh',
+  type: ValidatorType,
   value: string,
 ): boolean => {
   let result = false;
@@ -36,6 +48,9 @@ export const useValidationsBR = (
       break;
     case 'uf':
       result = validateUF(value);
+      break;
+    case 'rg':
+      result = validateRG(value);
       break;
     default:
   }
