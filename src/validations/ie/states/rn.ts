@@ -5,7 +5,7 @@ export function validateRN(ie: string): boolean {
 
   if (![9, 10].includes(length)) return false;
 
-  if (ieStr.substr(0, 2) !== '20') return false;
+  if (ieStr.substring(0, 2) !== '20') return false;
 
   const position = length - 1;
   let weight = length;
