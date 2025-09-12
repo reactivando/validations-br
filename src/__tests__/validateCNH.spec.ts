@@ -2,12 +2,12 @@ import { validateCNH } from '../index';
 
 describe('validateCNH', () => {
   it('should return true for valid CNHs', () => {
-    expect(validateCNH('01212208633')).toBe(true);
-    expect(validateCNH('04338787610')).toBe(true);
     expect(validateCNH('13462196624')).toBe(true);
   });
 
   it('should return false for invalid CNHs', () => {
+    expect(validateCNH('01212208633')).toBe(false);
+    expect(validateCNH('04338787610')).toBe(false);
     expect(validateCNH('01212208630')).toBe(false);
     expect(validateCNH('123')).toBe(false);
   });

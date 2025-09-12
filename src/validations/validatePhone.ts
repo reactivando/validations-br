@@ -21,7 +21,7 @@ export function validatePhone(phone: string): boolean {
   const shortNumber =
     clearPhone.length > 9 ? clearPhone.substring(2) : clearPhone;
   if (shortNumber.length === 8) {
-    return [2, 3, 4, 5, 7].indexOf(+shortNumber[0]) !== -1;
+    return [2, 3, 4, 5, 6, 7, 8].indexOf(+shortNumber[0]) !== -1;
   }
   return shortNumber[0] === '9';
 }
