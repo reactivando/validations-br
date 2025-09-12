@@ -1,3 +1,14 @@
+import { isRepeated } from './utils';
+
+/**
+ * The function `generateChecksum` calculates a checksum based on a given base number and a weight
+ * array.
+ * @param {string | number} base - The `base` parameter can be either a string or a number. It is the
+ * value for which the checksum is calculated.
+ * @param {number[]} weight - The `weight` parameter is an array of numbers that is used to calculate
+ * the checksum. Each digit in the `base` is multiplied by the corresponding weight at the same index.
+ * @returns The function `generateChecksum` returns the calculated checksum value.
+ */
 function generateChecksum(base: string | number, weight: number[]): number {
   const digits = String(base).replace(/[^\d]/g, '');
 
@@ -8,36 +19,25 @@ function generateChecksum(base: string | number, weight: number[]): number {
 
 const weights = [3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
 
-const reservedNumbers = [
-  '00000000000',
-  '11111111111',
-  '22222222222',
-  '33333333333',
-  '44444444444',
-  '55555555555',
-  '66666666666',
-  '77777777777',
-  '88888888888',
-  '99999999999',
-];
-
+/**
+ * The function `validatePIS` validates a PIS number, which is a Brazilian social identification
+ * number.
+ * @param {string} pis - The `pis` parameter is a string that represents the PIS number to be
+ * validated.
+ * @returns The function `validatePIS` returns a boolean value. It returns `true` if the PIS is valid,
+ * and `false` otherwise.
+ */
 export function validatePIS(pis: string): boolean {
   const pisStr = String(pis).replace(/\D/g, '');
 
-  const numeric = pisStr.replace(/[ ().,*-]/g, '');
-
-  if (
-    !(pisStr.length === 11) ||
-    reservedNumbers.indexOf(pisStr) >= 0 ||
-    !/^[0-9]+$/.test(pisStr)
-  )
+  if (pisStr.length !== 11 || isRepeated(pisStr) || !/^[0-9]+$/.test(pisStr))
     return false;
 
   const weightedChecksum = generateChecksum(
-    numeric.substr(0, numeric.length - 1),
+    pisStr.substring(0, pisStr.length - 1),
     weights,
   );
-  const verifyingDigit = +numeric.charAt(numeric.length - 1);
+  const verifyingDigit = +pisStr.charAt(pisStr.length - 1);
   const calculatedDigit = 11 - (weightedChecksum % 11);
 
   return (

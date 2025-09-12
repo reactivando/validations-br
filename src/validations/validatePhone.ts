@@ -1,10 +1,18 @@
+import { isRepeated } from './utils';
+
+/**
+ * The function `validatePhone` validates a Brazilian phone number.
+ * @param {string} phone - The `phone` parameter is a string that represents the phone number to be
+ * validated.
+ * @returns The function `validatePhone` returns a boolean value. It returns `true` if the phone number
+ * is valid, and `false` otherwise.
+ */
 export function validatePhone(phone: string): boolean {
   const clearPhone = phone.replace(/\D/g, '');
-  const sameCharacterRegexp = /^(.)\1*$/;
-  if (!(clearPhone.length >= 8 && clearPhone.length <= 11)) {
+  if (isRepeated(clearPhone)) {
     return false;
   }
-  if (sameCharacterRegexp.test(clearPhone)) {
+  if (!(clearPhone.length >= 8 && clearPhone.length <= 11)) {
     return false;
   }
   if (clearPhone.length > 9 && [0, 1].indexOf(clearPhone.indexOf('0')) !== -1) {

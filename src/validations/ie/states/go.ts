@@ -1,35 +1,45 @@
+/**
+ * The function `validateGO` validates the state registration number (IE) for the state of Goiás (GO)
+ * in Brazil.
+ * @param {string} ie - The `ie` parameter is a string that represents the state registration number of
+ * a company in the state of Goiás (GO).
+ * @returns The function `validateGO` returns a boolean value. It returns `true` if the IE is valid,
+ * and `false` otherwise.
+ */
 export function validateGO(ie: string): boolean {
   const ieStr = String(ie).replace(/\D/g, '');
 
-  const { length } = ieStr;
+  if (ieStr.length !== 9) {
+    return false;
+  }
 
-  if (length !== 9) return false;
+  const prefix = ieStr.substring(0, 2);
+  if (prefix !== '10' && prefix !== '11' && prefix !== '15') {
+    return false;
+  }
 
-  const beginRegex = /^(1[01]|2[0-9])/;
-  const begin = ieStr.substr(0, 2);
-  if (!beginRegex.test(begin)) return false;
+  const body = ieStr.substring(0, 8);
+  const checkDigit = parseInt(ieStr.substring(8, 9), 10);
+  const bodyInt = parseInt(body, 10);
 
-  const position = length - 1;
-  let weight = length;
-  const body = ieStr.substr(0, position);
-  const bodyInt = +body;
+  let weight = 9;
   let sum = 0;
 
-  body.split('').forEach(digit => {
-    sum += +digit * weight;
+  for (let i = 0; i < body.length; i++) {
+    sum += parseInt(body.charAt(i), 10) * weight;
     weight--;
-  });
+  }
 
   const rest = sum % 11;
-  let dig = 11 - rest;
+  let calculatedDigit = 11 - rest;
 
-  if (dig >= 10) {
-    if (dig === 11 && bodyInt >= 10103105 && bodyInt <= 10119997) {
-      dig = 1;
+  if (calculatedDigit >= 10) {
+    if (calculatedDigit === 11 && bodyInt >= 10103105 && bodyInt <= 10119997) {
+      calculatedDigit = 1;
     } else {
-      dig = 0;
+      calculatedDigit = 0;
     }
   }
 
-  return dig === +ieStr.charAt(position);
+  return calculatedDigit === checkDigit;
 }

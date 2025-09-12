@@ -1,26 +1,31 @@
 import { validateCNPJ } from '../index';
 
-describe('Validate CNPJ', () => {
-  it('should be able return true to valid CNPJ', () => {
+describe('validateCNPJ', () => {
+  it('should return true for valid CNPJs', () => {
     expect(validateCNPJ('66.919.381/0001-15')).toBe(true);
+    expect(validateCNPJ('48.514.588/0001-70')).toBe(true);
+    expect(validateCNPJ('48514588000170')).toBe(true);
   });
 
-  it('should be able return false to invalid CNPJ', () => {
-    expect.assertions(2);
-
+  it('should return false for invalid CNPJs', () => {
     expect(validateCNPJ('12.732.455/0001-25')).toBe(false);
     expect(validateCNPJ('66.919.381/0001-10')).toBe(false);
+    expect(validateCNPJ('123')).toBe(false);
   });
 
-  it('should be able return false to pass a empty string', () => {
+  it('should return false for empty or null strings', () => {
     expect(validateCNPJ('')).toBe(false);
   });
 
-  it('should be able return false to pass a string over 14 characters', () => {
-    expect(validateCNPJ('66.919.381/00001-14')).toBe(false);
+  it('should return false for CNPJs with all digits the same', () => {
+    expect(validateCNPJ('11.111.111/1111-11')).toBe(false);
+    expect(validateCNPJ('22222222222222')).toBe(false);
   });
 
-  it('should be able return false to pass a only repeated numbers', () => {
-    expect(validateCNPJ('11.111.111/1111-11')).toBe(false);
+  it('should return false for CNPJs with incorrect length', () => {
+    expect(validateCNPJ('66.919.381/0001-1')).toBe(false);
+    expect(validateCNPJ('66.919.381/0001-155')).toBe(false);
+    expect(validateCNPJ('6691938100011')).toBe(false);
+    expect(validateCNPJ('669193810001155')).toBe(false);
   });
 });

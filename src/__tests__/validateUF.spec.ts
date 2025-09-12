@@ -1,20 +1,26 @@
 import { validateUF } from '../index';
 
-describe('Validate UF', () => {
-  it('should be able return true to valid UF', () => {
+describe('validateUF', () => {
+  it('should return true for valid UFs', () => {
     expect(validateUF('SP')).toBe(true);
+    expect(validateUF('rj')).toBe(true);
+    expect(validateUF('AC')).toBe(true);
+    expect(validateUF('to')).toBe(true);
   });
 
-  it('should be able return false to invalid UF', () => {
-    expect(validateUF('AA')).toBe(false);
+  it('should return false for invalid UFs', () => {
+    expect(validateUF('S')).toBe(false);
+    expect(validateUF('SPA')).toBe(false);
+    expect(validateUF('AX')).toBe(false);
+    expect(validateUF('12')).toBe(false);
+    expect(validateUF('')).toBe(false);
   });
 
-  it('should be able return false if invalid parameter type', () => {
-    expect(validateUF(undefined as unknown as string)).toBe(false);
-    expect(validateUF(null as unknown as string)).toBe(false);
-    expect(validateUF(0 as unknown as string)).toBe(false);
-    expect(validateUF({} as unknown as string)).toBe(false);
-    expect(validateUF([] as unknown as string)).toBe(false);
-    expect(validateUF(true as unknown as string)).toBe(false);
+  it('should return false for invalid parameter type', () => {
+    const parameters = [{}, [], 0, NaN, Boolean, true] as string[];
+
+    expect.assertions(parameters.length);
+
+    parameters.forEach(parameter => expect(validateUF(parameter)).toBe(false));
   });
 });
