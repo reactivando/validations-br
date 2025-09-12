@@ -33,6 +33,10 @@ Com yarn:
 ```bash
 yarn add validations-br
 ```
+Com pnpm:
+```bash
+pnpm add validations-br
+```
 
 # Como usar
 
@@ -197,7 +201,7 @@ Fique a vontade para contribuir com o projeto. Nós só pedimos para que:
  - Siga os padrões de commit [conventional-changelog](https://github.com/ajoslin/conventional-changelog) descritos em 
 [conventional-conventions](https://github.com/ajoslin/conventional-changelog/blob/main/conventions/angular.md)
  - Dê push dá branch para seu repositório (git push origin feature/fooBar)
- - Tenha certeza que os testes passaram antes de abrir a pull-request (Use: `$ yarn test` or `$ npm run test`)
+ - Tenha certeza que os testes passaram antes de abrir a pull-request (Use: `$ pnpm test` or `$ npm run test`)
  - Crie uma nova Pull Request
 
 # Autores

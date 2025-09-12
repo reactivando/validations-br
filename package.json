@@ -3,7 +3,8 @@
   "version": "1.4.0",
   "packageManager": "pnpm@10.15.1",
   "description": "A validator to BR informations",
-  "main": "lib/index.js",
+  "main": "lib/index.cjs",
+  "module": "lib/index.mjs",
   "types": "lib/index.d.ts",
   "repository": "https://github.com/reactivando/validations-br.git",
   "homepage": "https://github.com/reactivando/validations-br#readme",
@@ -19,7 +20,7 @@
     "lib/**/*"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "tsdown",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src",
     "test": "jest"
@@ -42,6 +43,7 @@
     "lint-staged": "^16.1.6",
     "prettier": "^3.6.2",
     "ts-jest": "^29.4.1",
+    "tsdown": "^0.15.0",
     "typescript": "^5.9.2"
   },
   "lint-staged": {
