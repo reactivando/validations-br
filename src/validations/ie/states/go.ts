@@ -14,7 +14,12 @@ export function validateGO(ie: string): boolean {
   }
 
   const prefix = ieStr.substring(0, 2);
-  if (prefix !== '10' && prefix !== '11' && prefix !== '15' && prefix !== '20') {
+  if (
+    prefix !== '10' &&
+    prefix !== '11' &&
+    prefix !== '15' &&
+    prefix !== '20'
+  ) {
     return false;
   }
 

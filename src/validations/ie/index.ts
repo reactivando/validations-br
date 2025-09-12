@@ -30,16 +30,17 @@ const ufs = [
   'TO',
 ];
 
-const validationFns: { [key: string]: (ie: string) => boolean } = {};
+// eslint-disable-next-line no-unused-vars
+const validationFns: { [key: string]: (_ie: string) => boolean } = {};
 
-for (const uf of ufs) {
+ufs.forEach(uf => {
   const fnName = `validate${uf}` as keyof typeof validations;
   const fn = validations[fnName];
   if (fn) {
     validationFns[uf] = fn;
     validationFns[uf.toLowerCase()] = fn;
   }
-}
+});
 
 /**
  * The function `validateIE` validates a Brazilian state registration number (IE) for a given state

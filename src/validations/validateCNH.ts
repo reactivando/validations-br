@@ -45,7 +45,6 @@ export function validateCNH(value: string) {
   }
 
   return (
-    dv1 === parseInt(cnh.charAt(9), 10) &&
-    dv2 === parseInt(cnh.charAt(10), 10)
+    dv1 === parseInt(cnh.charAt(9), 10) && dv2 === parseInt(cnh.charAt(10), 10)
   );
 }

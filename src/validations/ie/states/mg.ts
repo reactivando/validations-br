@@ -6,7 +6,7 @@
  * check digit.
  */
 function calcFirstDigit(body: string): number {
-  const bodyWithZero = body.slice(0, 3) + '0' + body.slice(3);
+  const bodyWithZero = `${body.slice(0, 3)}0${body.slice(3)}`;
   let weightedSum = '';
   for (let i = 0; i < bodyWithZero.length; i++) {
     const weight = (i + 1) % 2 === 0 ? 2 : 1;
