@@ -1,21 +1,13 @@
-import { mod11 } from './mod11';
+import { isRepeated, mod11 } from './utils';
 
 /**
- * Função que valida se a string é apenas
- * números repetidos.
- *
- * @param ref String númerica
- * @returns True se for contida por apenas caracteres repetidos,
- * false caso contrário
- */
-const isRepeated = (ref: string) => {
-  const ret = ref.replace(new RegExp(ref[0], 'g'), '').trim().length === 0;
-  return ret;
-};
-/**
- * Valida o CPF. A entrada pode ser com ou sem máscaras.
- * O tamanho deve ser respeitado como em '000.000.000-00' ou '00000000000'.
- * @param value
+ * The function `validateCPF` validates a Brazilian CPF number, checking its length, format, and check
+ * digits.
+ * @param {string} value - The `value` parameter is a string that represents the CPF (Cadastro de
+ * Pessoas Físicas) number to be validated. It can be in the format '000.000.000-00' or
+ * '00000000000'.
+ * @returns The function `validateCPF` returns a boolean value. It returns `true` if the CPF is valid,
+ * and `false` otherwise.
  */
 export function validateCPF(value: string): boolean {
   const clearValue = String(value).replace(/\D/g, '');

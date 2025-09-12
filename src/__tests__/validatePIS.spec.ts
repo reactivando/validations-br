@@ -1,14 +1,30 @@
 import { validatePIS } from '../index';
 
-describe('Validate PIS', () => {
-  it('should be able return true to valid PIS', () => {
-    expect(validatePIS('219.88440.79-5')).toBe(true);
+describe('validatePIS', () => {
+  it('should return true for valid PIS numbers', () => {
+    expect(validatePIS('120.38617.52-5')).toBe(true);
+    expect(validatePIS('120.83210.63-8')).toBe(true);
+    expect(validatePIS('12083210638')).toBe(true);
   });
 
-  it('should be able return false to invalid PIS', () => {
-    expect.assertions(2);
+  it('should return false for invalid PIS numbers', () => {
+    expect(validatePIS('120.83210.63-9')).toBe(false);
+    expect(validatePIS('123')).toBe(false);
+  });
 
-    expect(validatePIS('220.88440.79-5')).toBe(false);
-    expect(validatePIS('999.99999.99-9')).toBe(false);
+  it('should return false for empty or null strings', () => {
+    expect(validatePIS('')).toBe(false);
+  });
+
+  it('should return false for PIS numbers with all digits the same', () => {
+    expect(validatePIS('11111111111')).toBe(false);
+    expect(validatePIS('222.22222.22-2')).toBe(false);
+  });
+
+  it('should return false for PIS numbers with incorrect length', () => {
+    expect(validatePIS('120.38617.52-51')).toBe(false);
+    expect(validatePIS('120.38617.52-')).toBe(false);
+    expect(validatePIS('120386175251')).toBe(false);
+    expect(validatePIS('1203861752')).toBe(false);
   });
 });

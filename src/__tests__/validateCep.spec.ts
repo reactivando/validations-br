@@ -1,24 +1,19 @@
 import { validateCep } from '../index';
 
-describe('Validate CEP', () => {
-  it('should be able return true to valid CEP', () => {
-    expect.assertions(1);
-
-    expect(validateCep('17280-000')).toBe(true);
+describe('validateCep', () => {
+  it('should return true for valid CEPs', () => {
+    expect(validateCep('57040-520')).toBe(true);
+    expect(validateCep('57040520')).toBe(true);
+    expect(validateCep('00000-000')).toBe(true);
+    expect(validateCep('99999-999')).toBe(true);
   });
 
-  it('should be able return false to invalid CEP', () => {
-    const parameters = [
-      '172800-0000',
-      '172800000',
-      '172800-000',
-      '17280-0000',
-      '',
-    ];
-
-    expect.assertions(parameters.length);
-
-    parameters.forEach(parameter => expect(validateCep(parameter)).toBe(false));
+  it('should return false for invalid CEPs', () => {
+    expect(validateCep('57040-52')).toBe(false);
+    expect(validateCep('57040-5201')).toBe(false);
+    expect(validateCep('57040-520a')).toBe(false);
+    expect(validateCep('57040 520')).toBe(false);
+    expect(validateCep('')).toBe(false);
   });
 
   it('should return false for invalid parameter type', () => {

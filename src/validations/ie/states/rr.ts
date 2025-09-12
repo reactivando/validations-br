@@ -1,22 +1,33 @@
+/**
+ * The function `validateRR` validates the state registration number (IE) for the state of Roraima (RR)
+ * in Brazil.
+ * @param {string} ie - The `ie` parameter is a string that represents the state registration number of
+ * a company in the state of Roraima (RR).
+ * @returns The function `validateRR` returns a boolean value. It returns `true` if the IE is valid,
+ * and `false` otherwise.
+ */
 export function validateRR(ie: string): boolean {
   const ieStr = String(ie).replace(/\D/g, '');
 
-  const { length } = ieStr;
+  if (ieStr.length !== 9) {
+    return false;
+  }
 
-  if (length !== 9) return false;
+  if (ieStr.substring(0, 2) !== '24') {
+    return false;
+  }
 
-  if (ieStr.substr(0, 2) !== '24') return false;
+  const body = ieStr.substring(0, 8);
+  const checkDigit = parseInt(ieStr.substring(8, 9), 10);
 
-  const position = length - 1;
   let weight = 1;
-  const body = ieStr.substr(0, position);
   let sum = 0;
 
-  body.split('').forEach(digit => {
-    sum += +digit * weight;
+  for (let i = 0; i < body.length; i++) {
+    sum += parseInt(body.charAt(i), 10) * weight;
     weight++;
-  });
+  }
 
-  const dig = sum % 9;
-  return dig === +ieStr.charAt(position);
+  const calculatedDigit = sum % 9;
+  return calculatedDigit === checkDigit;
 }
