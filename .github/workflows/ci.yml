@@ -15,25 +15,26 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         fetch-depth: 0
 
     - name: Set up Node
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
-        node-version: 16
+        node-version-file: '.nvmrc'
+        cache: 'pnpm'
 
     - name: Install dependencies
-      run: yarn
+      run: pnpm install
 
     - name: Check tests
-      run: yarn test --coverage
+      run: pnpm test --coverage
 
     - name: Check linting
-      run: yarn lint
+      run: pnpm lint
 
     - name: Coveralls
-      uses: coverallsapp/github-action@master
+      uses: coverallsapp/github-action@v2
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
