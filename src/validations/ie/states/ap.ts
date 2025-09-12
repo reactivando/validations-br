@@ -1,15 +1,26 @@
+/**
+ * The function `validateAP` validates the state registration number (IE) for the state of Amapá (AP)
+ * in Brazil.
+ * @param {string} ie - The `ie` parameter is a string that represents the state registration number of
+ * a company in the state of Amapá (AP).
+ * @returns The function `validateAP` returns a boolean value. It returns `true` if the IE is valid,
+ * and `false` otherwise.
+ */
 export function validateAP(ie: string): boolean {
   const ieStr = String(ie).replace(/\D/g, '');
 
-  if (ieStr.length !== 9) return false;
+  if (ieStr.length !== 9) {
+    return false;
+  }
 
-  if (ieStr.substr(0, 2) !== '03') return false;
+  if (ieStr.substring(0, 2) !== '03') {
+    return false;
+  }
 
-  const { length } = ieStr;
-  const position = length - 1;
-  let weight = length;
-  const body = ieStr.substr(0, position);
-  const bodyInt = +body;
+  const body = ieStr.substring(0, 8);
+  const checkDigit = parseInt(ieStr.substring(8, 9), 10);
+  const bodyInt = parseInt(body, 10);
+
   let p = 0;
   let d = 0;
 
@@ -21,18 +32,20 @@ export function validateAP(ie: string): boolean {
     d = 1;
   }
 
+  let weight = 9;
   let sum = p;
-  body.split('').forEach(digit => {
-    sum += +digit * weight;
+
+  for (let i = 0; i < body.length; i++) {
+    sum += parseInt(body.charAt(i), 10) * weight;
     weight--;
-  });
-  let dig = 11 - (sum % 11);
-  if (dig === 10) {
-    dig = 0;
   }
 
-  if (dig === 11) {
-    dig = d;
+  let calculatedDigit = 11 - (sum % 11);
+  if (calculatedDigit === 10) {
+    calculatedDigit = 0;
+  } else if (calculatedDigit === 11) {
+    calculatedDigit = d;
   }
-  return dig === +ieStr.charAt(position);
+
+  return calculatedDigit === checkDigit;
 }

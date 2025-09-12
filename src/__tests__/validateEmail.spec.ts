@@ -1,15 +1,18 @@
 import { validateEmail } from '../index';
 
-describe('Validate Email', () => {
-  it('should be able return true to valid Email', () => {
-    expect(validateEmail('johndoe@email.com')).toBe(true);
+describe('validateEmail', () => {
+  it('should return true for valid emails', () => {
+    expect(validateEmail('email@email.com')).toBe(true);
+    expect(validateEmail('email@email.co.uk')).toBe(true);
+    expect(validateEmail('email.test@email.com')).toBe(true);
+    expect(validateEmail('email_test@email.com')).toBe(true);
   });
 
-  it('should be able return true to valid Email with custom domain', () => {
-    expect(validateEmail('johndoe@email.digital')).toBe(true);
-  });
-
-  it('should be able return false to invalid Email', () => {
-    expect(validateEmail('johndoe.email.com')).toBe(false);
+  it('should return false for invalid emails', () => {
+    expect(validateEmail('email@email')).toBe(false);
+    expect(validateEmail('email.com')).toBe(false);
+    expect(validateEmail('email@')).toBe(false);
+    expect(validateEmail('@email.com')).toBe(false);
+    expect(validateEmail('')).toBe(false);
   });
 });

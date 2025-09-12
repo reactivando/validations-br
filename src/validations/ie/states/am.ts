@@ -1,28 +1,39 @@
+/**
+ * The function `validateAM` validates the state registration number (IE) for the state of Amazonas (AM)
+ * in Brazil.
+ * @param {string} ie - The `ie` parameter is a string that represents the state registration number of
+ * a company in the state of Amazonas (AM).
+ * @returns The function `validateAM` returns a boolean value. It returns `true` if the IE is valid,
+ * and `false` otherwise.
+ */
 export function validateAM(ie: string): boolean {
   const ieStr = String(ie).replace(/\D/g, '');
 
-  if (ieStr.length !== 9) return false;
+  if (ieStr.length !== 9) {
+    return false;
+  }
 
-  const { length } = ieStr;
-  const position = length - 1;
-  let weight = length;
-  const body = ieStr.substr(0, position);
+  const body = ieStr.substring(0, 8);
+  const checkDigit = parseInt(ieStr.substring(8, 9), 10);
+
+  let weight = 9;
   let sum = 0;
-  let dig = 0;
-  body.split('').forEach(digit => {
-    sum += +digit * weight;
-    weight--;
-  });
 
+  for (let i = 0; i < body.length; i++) {
+    sum += parseInt(body.charAt(i), 10) * weight;
+    weight--;
+  }
+
+  let calculatedDigit;
   if (sum < 11) {
-    dig = 11 - sum;
+    calculatedDigit = 11 - sum;
   } else {
-    const rest = sum % 11;
-    dig = 11 - rest;
-    if (dig >= 10) {
-      dig = 0;
+    const remainder = sum % 11;
+    calculatedDigit = 11 - remainder;
+    if (calculatedDigit >= 10) {
+      calculatedDigit = 0;
     }
   }
 
-  return dig === +ieStr.charAt(position);
+  return calculatedDigit === checkDigit;
 }
