@@ -2,12 +2,14 @@ import { validatePIS } from '../index';
 
 describe('validatePIS', () => {
   it('should return true for valid PIS numbers', () => {
-    expect(validatePIS('120.38617.52-5')).toBe(true);
-    expect(validatePIS('120.83210.63-8')).toBe(true);
-    expect(validatePIS('12083210638')).toBe(true);
+    expect(validatePIS('120.38617.52-1')).toBe(true);
+    expect(validatePIS('120.83210.63-0')).toBe(true);
+    expect(validatePIS('12083210630')).toBe(true);
   });
 
   it('should return false for invalid PIS numbers', () => {
+    expect(validatePIS('120.38617.52-5')).toBe(false);
+    expect(validatePIS('120.83210.63-8')).toBe(false);
     expect(validatePIS('120.83210.63-9')).toBe(false);
     expect(validatePIS('123')).toBe(false);
   });

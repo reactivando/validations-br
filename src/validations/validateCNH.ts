@@ -8,25 +8,43 @@ import { isRepeated } from './utils';
  * valid or not.
  */
 export function validateCNH(value: string) {
-  const clearValue = String(value).replace(/\D/g, '');
-  if (!clearValue || isRepeated(clearValue)) {
+  const cnh = String(value).replace(/\D/g, '');
+
+  if (cnh.length !== 11 || isRepeated(cnh)) {
     return false;
   }
-  let val = 0;
-  for (let i = 0, j = 9; i < 9; ++i, --j) {
-    val += Number(clearValue.charAt(i)) * j;
+
+  let v = 0;
+  let j = 9;
+  for (let i = 0; i < 9; ++i) {
+    v += parseInt(cnh.charAt(i), 10) * j--;
   }
+
+  let dv1 = v % 11;
   let dsc = 0;
-  let vl1 = val % 11;
-  if (vl1 >= 10) {
-    vl1 = 0;
+  if (dv1 >= 10) {
+    dv1 = 0;
     dsc = 2;
   }
-  val = 0;
-  for (let i = 0, j = 1; i < 9; ++i, ++j) {
-    val += Number(clearValue.charAt(i)) * j;
+
+  v = 0;
+  j = 1;
+  for (let i = 0; i < 9; ++i) {
+    v += parseInt(cnh.charAt(i), 10) * j++;
   }
-  const x = val % 11;
-  const vl2 = x >= 10 ? 0 : x - dsc;
-  return `${vl1}${vl2}` === clearValue.substring(clearValue.length - 2);
+
+  let dv2 = v % 11;
+  if (dv2 >= 10) {
+    dv2 = 0;
+  }
+
+  dv2 -= dsc;
+
+  if (dv2 < 0) {
+    dv2 += 11;
+  }
+
+  return (
+    dv1 === parseInt(cnh.charAt(9), 10) && dv2 === parseInt(cnh.charAt(10), 10)
+  );
 }
