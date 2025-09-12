@@ -1,3 +1,10 @@
+/**
+ * The function `calcDigit` calculates a check digit for a given string of numbers.
+ * @param {string} body - The `body` parameter is a string of digits for which the check digit is
+ * calculated.
+ * @returns The function `calcDigit` returns a single-digit number, which is the calculated check
+ * digit.
+ */
 function calcDigit(body: string): number {
   let weight = body.length - 7;
   let sum = 0;
@@ -17,19 +24,26 @@ function calcDigit(body: string): number {
   return dig;
 }
 
+/**
+ * The function `validateAC` validates the state registration number (IE) for the state of Acre (AC) in
+ * Brazil.
+ * @param {string} ie - The `ie` parameter is a string that represents the state registration number of
+ * a company in the state of Acre (AC).
+ * @returns The function `validateAC` returns a boolean value. It returns `true` if the IE is valid,
+ * and `false` otherwise.
+ */
 export function validateAC(ie: string): boolean {
   const ieStr = String(ie).replace(/\D/g, '');
 
   if (ieStr.length !== 13) return false;
 
-  if (ieStr.substr(0, 2) !== '01') return false;
+  if (ieStr.substring(0, 2) !== '01') return false;
 
-  const { length } = ieStr;
-  const body = ieStr.substr(0, length - 2);
-  const fDig = calcDigit(body);
-  const sDig = calcDigit(body + fDig.toString());
-  const pos2dig = ieStr.length - 1;
-  const pos1dig = ieStr.length - 2;
+  const body = ieStr.substring(0, 11);
+  const firstDigit = calcDigit(body);
+  const secondDigit = calcDigit(body + firstDigit);
 
-  return +ieStr[pos1dig] === fDig && +ieStr[pos2dig] === sDig;
+  const checkDigits = `${firstDigit}${secondDigit}`;
+
+  return ieStr.substring(ieStr.length - 2) === checkDigits;
 }
