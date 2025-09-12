@@ -22,8 +22,7 @@
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src",
-    "test": "jest",
-    "prepare": "husky install"
+    "test": "jest"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
