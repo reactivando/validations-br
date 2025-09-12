@@ -1,6 +1,7 @@
 {
   "name": "validations-br",
   "version": "1.4.0",
+  "packageManager": "pnpm@10.15.1",
   "description": "A validator to BR informations",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -21,8 +22,7 @@
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src",
-    "test": "jest",
-    "prepare": "husky install"
+    "test": "jest"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
