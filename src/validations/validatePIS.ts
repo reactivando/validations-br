@@ -38,11 +38,12 @@ export function validatePIS(pis: string): boolean {
     weights,
   );
   const verifyingDigit = +pisStr.charAt(pisStr.length - 1);
-  const calculatedDigit = 11 - (weightedChecksum % 11);
+  const remainder = weightedChecksum % 11;
+  let calculatedDigit = 11 - remainder;
 
-  return (
-    calculatedDigit === verifyingDigit ||
-    (calculatedDigit === 10 && verifyingDigit === 0) ||
-    (calculatedDigit === 11 && verifyingDigit === 0)
-  );
+  if (calculatedDigit === 10 || calculatedDigit === 11) {
+    calculatedDigit = 0;
+  }
+
+  return calculatedDigit === verifyingDigit;
 }
