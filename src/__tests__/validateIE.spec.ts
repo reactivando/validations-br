@@ -92,7 +92,6 @@ describe('Validate Email', () => {
    */
 
   it('should return false for invalid state', () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const invalidState: any[] = [
       'XX',
       'yY',
