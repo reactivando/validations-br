@@ -10,5 +10,3 @@ stats.html
 analyze-bundle.mjs
 
 # Example project dependencies
-/examples/node_modules
-/examples/pnpm-lock.yaml
