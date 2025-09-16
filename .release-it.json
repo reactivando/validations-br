@@ -15,6 +15,7 @@
     "after:bump": "pnpm build"
   },
   "plugins": {
+    "release-it-pnpm": {},
     "@release-it/conventional-changelog": {
       "preset": "angular",
       "infile": "CHANGELOG.md"
