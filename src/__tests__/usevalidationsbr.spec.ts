@@ -1,4 +1,5 @@
-import { useValidationsBR } from '../index';
+import { describe, it, expect } from 'vitest';
+import { useValidationsBR } from '../validations/usevalidationsbr';
 
 describe('UseValidationBr Cep', () => {
   it('should be able return true to valid CEP', () => {

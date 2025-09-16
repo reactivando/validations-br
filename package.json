@@ -24,7 +24,8 @@
     "build": "tsdown",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src",
-    "test": "jest",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
     "test:e2e": "pnpm build && cd examples && pnpm install && pnpm start",
     "release": "release-it"
   },
@@ -34,18 +35,18 @@
     "@release-it/conventional-changelog": "^10.0.1",
     "@typescript-eslint/eslint-plugin": "^8.43.0",
     "@typescript-eslint/parser": "^8.43.0",
+    "@vitest/coverage-v8": "^3.2.4",
     "eslint": "^9.35.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
     "globals": "^16.4.0",
-    "jest": "^30.1.3",
     "lint-staged": "^16.1.6",
     "prettier": "^3.6.2",
     "release-it": "^19.0.4",
     "release-it-pnpm": "^4.6.6",
-    "ts-jest": "^29.4.1",
     "tsdown": "^0.15.0",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
   },
   "lint-staged": {
     "*.{js,json,jsx,ts,tsx}": [

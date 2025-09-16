@@ -1,4 +1,5 @@
-import { validateCep } from '../index';
+import { describe, it, expect } from 'vitest';
+import { validateCep } from '../validations/validateCep';
 
 describe('validateCep', () => {
   it('should return true for valid CEPs', () => {

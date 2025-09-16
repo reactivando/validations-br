@@ -32,12 +32,7 @@ jobs:
       run: pnpm install
 
     - name: Check tests
-      run: pnpm test --coverage
+      run: pnpm coverage
 
     - name: Check linting
       run: pnpm lint
-
-    - name: Coveralls
-      uses: coverallsapp/github-action@v2
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
