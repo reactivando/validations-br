@@ -23,7 +23,8 @@
     "build": "tsdown",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src",
-    "test": "jest"
+    "test": "jest",
+    "test:e2e": "pnpm build && cd examples && pnpm install && pnpm start"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
