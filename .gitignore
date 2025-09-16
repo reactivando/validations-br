@@ -2,3 +2,13 @@ node_modules
 /lib
 coverage
 .history/
+
+# Build artifacts and reports
+stats.html
+
+# Local scripts
+analyze-bundle.mjs
+
+# Example project dependencies
+/examples/node_modules
+/examples/pnpm-lock.yaml
