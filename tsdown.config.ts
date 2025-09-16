@@ -1,15 +1,9 @@
 import { defineConfig } from 'tsdown';
-import { visualizer } from 'rollup-plugin-visualizer';
 
 export default defineConfig({
-  entry: ['./src/index.ts'],
+  entry: ['src/**/*.ts', '!src/**/__tests__/**/*.ts'],
   outDir: 'lib',
   format: ['esm', 'cjs'],
   dts: true,
-  plugins: [
-    visualizer({
-      filename: 'stats.html',
-      open: false,
-    }),
-  ],
+  unbundle: true,
 });
