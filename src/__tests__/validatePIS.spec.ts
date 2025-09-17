@@ -1,4 +1,5 @@
-import { validatePIS } from '../index';
+import { describe, it, expect } from 'vitest';
+import { validatePIS } from '../validations/validatePIS';
 
 describe('validatePIS', () => {
   it('should return true for valid PIS numbers', () => {

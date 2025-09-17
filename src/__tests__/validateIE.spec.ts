@@ -1,4 +1,5 @@
-import { validateIE } from '../index';
+import { describe, it, expect } from 'vitest';
+import { validateIE } from '../validations/ie';
 
 describe('validateIE', () => {
   describe('valid IEs', () => {

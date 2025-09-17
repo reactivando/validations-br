@@ -1,4 +1,5 @@
-import { validatePhone } from '../index';
+import { describe, it, expect } from 'vitest';
+import { validatePhone } from '../validations/validatePhone';
 
 describe('validatePhone', () => {
   it('should return true for valid phone numbers', () => {
