@@ -4,7 +4,8 @@
     "tagName": "v${version}"
   },
   "npm": {
-    "publish": true
+    "publish": true,
+    "publishPath": "."
   },
   "github": {
     "release": true,
@@ -15,7 +16,9 @@
     "after:bump": "pnpm build"
   },
   "plugins": {
-    "release-it-pnpm": {},
+    "release-it-pnpm": {
+      "publishCommand": "pnpm publish --no-git-checks --tag $tag"
+    },
     "@release-it/conventional-changelog": {
       "preset": "angular",
       "infile": "CHANGELOG.md"
