@@ -11,8 +11,7 @@
     "releaseName": "Release v${version}"
   },
   "hooks": {
-    "before:init": "pnpm test",
-    "after:bump": "pnpm build"
+    "before:init": "pnpm test"
   },
   "plugins": {
     "release-it-pnpm": {},
