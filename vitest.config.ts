@@ -5,7 +5,7 @@ export default defineConfig({
     globals: false,
     coverage: {
       provider: 'v8',
-      reporter: ['text', 'json', 'html'],
+      reporter: ['text', 'json', 'html', 'lcov'],
       include: ['src/validations/**/*.ts'],
       exclude: [
         'src/**/__tests__',
