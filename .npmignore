@@ -1,0 +1,11 @@
+node_modules
+coverage
+.history/
+
+# Build artifacts and reports
+stats.html
+
+# Local scripts
+analyze-bundle.mjs
+
+# Example project dependencies
