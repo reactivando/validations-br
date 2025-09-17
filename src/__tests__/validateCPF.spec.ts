@@ -1,4 +1,5 @@
-import { validateCPF } from '../index';
+import { describe, it, expect } from 'vitest';
+import { validateCPF } from '../validations/validateCPF';
 
 describe('validateCPF', () => {
   it('should return true for valid CPFs', () => {
