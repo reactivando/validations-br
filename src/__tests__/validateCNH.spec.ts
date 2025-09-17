@@ -1,4 +1,5 @@
-import { validateCNH } from '../index';
+import { describe, it, expect } from 'vitest';
+import { validateCNH } from '../validations/validateCNH';
 
 describe('validateCNH', () => {
   it('should return true for valid CNHs', () => {

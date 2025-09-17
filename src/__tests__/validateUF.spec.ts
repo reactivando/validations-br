@@ -1,4 +1,5 @@
-import { validateUF } from '../index';
+import { describe, it, expect } from 'vitest';
+import { validateUF } from '../validations/validateUF';
 
 describe('validateUF', () => {
   it('should return true for valid UFs', () => {

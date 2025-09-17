@@ -1,17 +1,12 @@
-name: ci
+name: e2e-test
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
     branches: [ main ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
     - name: Checkout repository
@@ -31,13 +26,5 @@ jobs:
     - name: Install dependencies
       run: pnpm install
 
-    - name: Check tests
-      run: pnpm coverage
-
-    - name: Check linting
-      run: pnpm lint
-
-    - name: Coveralls
-      uses: coverallsapp/github-action@v2
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Run e2e tests
+      run: pnpm test:e2e

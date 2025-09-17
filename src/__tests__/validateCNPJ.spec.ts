@@ -1,4 +1,5 @@
-import { validateCNPJ } from '../index';
+import { describe, it, expect } from 'vitest';
+import { validateCNPJ } from '../validations/validateCNPJ';
 
 describe('validateCNPJ', () => {
   it('should return true for valid CNPJs', () => {
