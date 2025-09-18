@@ -1,4 +1,4 @@
-name: Test Protected Branch Push (with Debugging)
+name: Test Protected Branch Push
 
 on:
   pull_request:
@@ -10,22 +10,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
+          # We need to fetch main to be able to push to it
           ref: 'main'
+          # Use the PAT to checkout and persist credentials
+          token: ${{ secrets.GH_PAT }}
 
       - name: Configure Git User
         run: |
           git config user.name "azagatti"
           git config user.email "andre.zagatti1@gmail.com"
-          echo "Git config set."
-
-      - name: Check GitHub CLI Auth Status
-        run: gh auth status
-        env:
-          GH_TOKEN: ${{ secrets.GH_PAT }}
 
       - name: Push Test Commit
         run: |
           git commit --allow-empty -m "Test commit from CI to test push permissions"
-          git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/${{ github.repository }} HEAD:main
-        env:
-          GH_TOKEN: ${{ secrets.GH_PAT }}
+          # The push should now work without embedding the token in the URL
+          git push
