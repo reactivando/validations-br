@@ -1,6 +1,6 @@
 {
   "name": "validations-br",
-  "version": "1.4.0",
+  "version": "1.6.0",
   "packageManager": "pnpm@10.15.1",
   "description": "A validator to BR informations",
   "main": "lib/index.cjs",
