@@ -15,35 +15,13 @@ jobs:
       - name: ------------------ DEBUGGING START ------------------
         run: echo "Starting debug..."
 
-      - name: 1. Print Environment Variables
-        run: env | sort
-
-      - name: 2. Configure Git User
+      - name: 1. Configure Git User
         run: |
           git config user.name "azagatti"
           git config user.email "andre.zagatti1@gmail.com"
           echo "Git config set."
 
-      - name: 3. Print Git Config
-        run: git config --list
-
-      - name: 4. Authenticate with npm
-        run: |
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
-          echo "NPM token configured."
-
-      - name: 5. Check npm identity
-        run: npm whoami || echo "npm whoami failed"
-
-      - name: 6. Authenticate with GitHub CLI
-        run: echo "${{ secrets.GH_PAT }}" | gh auth login --with-token
-        env:
-          GH_TOKEN: ${{ secrets.GH_PAT }}
-
-      - name: 7. Check GitHub CLI Auth Status
-        run: gh auth status
-
-      - name: 8. Inspect Branch Protection Rules
+      - name: 2. Inspect Branch Protection Rules
         run: gh repo view ${{ github.repository }} --json branchProtectionRules
         env:
           GH_TOKEN: ${{ secrets.GH_PAT }}
@@ -51,7 +29,7 @@ jobs:
       - name: ------------------ DEBUGGING END ------------------
         run: echo "Debugging complete. Attempting push..."
 
-      - name: Push Test Commit
+      - name: 3. Push Test Commit
         run: |
           git commit --allow-empty -m "Test commit from CI to test push permissions"
           git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/${{ github.repository }} HEAD:main
