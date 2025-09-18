@@ -14,7 +14,9 @@
     "before:init": "pnpm test"
   },
   "plugins": {
-    "release-it-pnpm": {},
+    "release-it-pnpm": {
+      "publishCommand": "pnpm publish --no-git-checks --tag $tag"
+    },
     "@release-it/conventional-changelog": {
       "preset": "angular",
       "infile": "CHANGELOG.md"
