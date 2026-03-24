@@ -5,8 +5,7 @@
  * @returns a boolean value.
  */
 export const isRepeated = (ref: string) => {
-  const ret = ref.replace(new RegExp(ref[0], 'g'), '').trim().length === 0;
-  return ret;
+  return /^([A-Z0-9])\1+$/.test(ref);
 };
 
 /**
