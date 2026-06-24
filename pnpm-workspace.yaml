@@ -1,0 +1,8 @@
+allowBuilds:
+  esbuild: true
+  unrs-resolver: true
+
+overrides:
+  # giget (via release-it-pnpm) pins tar@^6.2.1, so the patched tar@7.5.16
+  # is out of range and can only be forced here — not via a direct dep.
+  tar: ^7.5.16
