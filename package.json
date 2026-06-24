@@ -1,6 +1,6 @@
 {
   "name": "validations-br",
-  "version": "1.6.1",
+  "version": "1.7.0",
   "packageManager": "pnpm@11.9.0",
   "description": "Validators for Brazilian documents (CPF, CNPJ, CNH, PIS, CEP, IE, phone, UF, email)",
   "main": "lib/index.cjs",

@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.7.0](https://github.com/reactivando/validations-br/compare/v1.6.1...v1.7.0) (2026-06-24)
+
+
+### Features
+
+* **cnpj:** support the alphanumeric CNPJ format ([#67](https://github.com/reactivando/validations-br/issues/67)) ([2abd887](https://github.com/reactivando/validations-br/commit/2abd887837a58df6d4f5c8d47e5901ea6d8d6ad8)), closes [60/#62](https://github.com/reactivando/validations-br/issues/62) [#62](https://github.com/reactivando/validations-br/issues/62)
+
 ## [1.6.1](https://github.com/reactivando/validations-br/compare/v1.6.0...v1.6.1) (2025-12-18)
 
 # [1.6.0](https://github.com/reactivando/validations-br/compare/v1.5.1...v1.6.0) (2025-09-18)
