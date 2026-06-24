@@ -3,6 +3,8 @@ allowBuilds:
   unrs-resolver: true
 
 overrides:
+  # release-it pins undici@7.24.5 exactly; advisory needs >=7.28.0, force it.
+  undici: ^7.28.0
   # giget (via release-it-pnpm) pins tar@^6.2.1, so the patched tar@7.5.16
   # is out of range and can only be forced here — not via a direct dep.
   tar: ^7.5.16
