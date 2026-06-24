@@ -34,7 +34,6 @@
   "devDependencies": {
     "@biomejs/biome": "2.5.0",
     "@release-it/conventional-changelog": "^11.0.1",
-    "@types/jest": "^30.0.0",
     "@vitest/coverage-v8": "^4.1.9",
     "esbuild": "^0.28.1",
     "lefthook": "^2.1.9",
