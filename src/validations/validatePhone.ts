@@ -8,20 +8,20 @@ import { isRepeated } from './utils';
  * is valid, and `false` otherwise.
  */
 export function validatePhone(phone: string): boolean {
-  const clearPhone = phone.replace(/\D/g, '');
+  const clearPhone = String(phone).replace(/\D/g, '');
   if (isRepeated(clearPhone)) {
     return false;
   }
   if (!(clearPhone.length >= 8 && clearPhone.length <= 11)) {
     return false;
   }
-  if (clearPhone.length > 9 && [0, 1].indexOf(clearPhone.indexOf('0')) !== -1) {
+  if (clearPhone.length > 9 && [0, 1].includes(clearPhone.indexOf('0'))) {
     return false;
   }
   const shortNumber =
     clearPhone.length > 9 ? clearPhone.substring(2) : clearPhone;
   if (shortNumber.length === 8) {
-    return [2, 3, 4, 5, 6, 7, 8].indexOf(+shortNumber[0]) !== -1;
+    return [2, 3, 4, 5, 6, 7, 8].includes(+shortNumber[0]);
   }
   return shortNumber[0] === '9';
 }

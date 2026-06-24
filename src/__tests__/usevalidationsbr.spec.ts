@@ -117,12 +117,25 @@ describe('UseValidationBr Pis', () => {
   });
 });
 
-describe('UseValidationBr Pis', () => {
+describe('UseValidationBr UF', () => {
   it('should be able return true to valid UF', () => {
     expect(useValidationsBR('uf', 'SP')).toBe(true);
   });
 
   it('should be able return false to invalid UF', () => {
     expect(useValidationsBR('uf', 'AA')).toBe(false);
+  });
+});
+
+describe('UseValidationBr CNH', () => {
+  it('should be able return true to valid CNH', () => {
+    expect(useValidationsBR('cnh', '134621966-24')).toBe(true);
+  });
+
+  it('should be able return false to invalid CNH', () => {
+    expect.assertions(2);
+
+    expect(useValidationsBR('cnh', '134621966-25')).toBe(false);
+    expect(useValidationsBR('cnh', '11111111111')).toBe(false);
   });
 });

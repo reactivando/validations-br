@@ -7,7 +7,7 @@ import { isRepeated } from './utils';
  * @returns The function `validateCNH` returns a boolean value, indicating whether the provided CNH is
  * valid or not.
  */
-export function validateCNH(value: string) {
+export function validateCNH(value: string): boolean {
   const cnh = String(value).replace(/\D/g, '');
 
   if (cnh.length !== 11 || isRepeated(cnh)) {

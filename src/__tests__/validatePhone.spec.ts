@@ -22,4 +22,9 @@ describe('validatePhone', () => {
     expect(validatePhone('11111111111')).toBe(false);
     expect(validatePhone('22222222')).toBe(false);
   });
+
+  it('should return false for non-string inputs instead of throwing', () => {
+    expect(validatePhone(null as unknown as string)).toBe(false);
+    expect(validatePhone(undefined as unknown as string)).toBe(false);
+  });
 });

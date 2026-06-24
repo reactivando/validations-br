@@ -15,7 +15,7 @@ export function validateCPF(value: string): boolean {
     return false;
   }
   const valWithoutDvs = clearValue.substring(0, clearValue.length - 2);
-  if (!clearValue || isRepeated(clearValue)) {
+  if (isRepeated(clearValue)) {
     return false;
   }
   const dv1 = mod11(valWithoutDvs, 12);

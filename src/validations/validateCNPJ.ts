@@ -29,9 +29,10 @@ function charToNumber(char: string): number {
  * @returns The calculated check digit (0-9).
  */
 function generateChecksum(base: string, weights: number[]): number {
-  const sum = base
-    .split('')
-    .reduce((acc, char, i) => acc + charToNumber(char) * weights[i], 0);
+  let sum = 0;
+  for (let i = 0; i < base.length; i++) {
+    sum += charToNumber(base[i]) * weights[i];
+  }
   const remainder = sum % 11;
 
   return remainder < 2 ? 0 : 11 - remainder;
