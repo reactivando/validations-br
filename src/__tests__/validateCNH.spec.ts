@@ -4,11 +4,13 @@ import { validateCNH } from '../validations/validateCNH';
 describe('validateCNH', () => {
   it('should return true for valid CNHs', () => {
     expect(validateCNH('13462196624')).toBe(true);
-    // Cover the exceptional check-digit branches (dv >= 10 / dv < 0 carry).
+    // 64644399109 exercises the exceptional check-digit branches
+    // (dv1 >= 10 -> dsc=2, dv2 >= 10 -> 0, dv2 < 0 -> +11); the others are
+    // additional valid samples.
+    expect(validateCNH('64644399109')).toBe(true);
     expect(validateCNH('41835138958')).toBe(true);
     expect(validateCNH('79886050534')).toBe(true);
     expect(validateCNH('58879358643')).toBe(true);
-    expect(validateCNH('64644399109')).toBe(true);
   });
 
   it('should return false for invalid CNHs', () => {

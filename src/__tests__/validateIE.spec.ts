@@ -242,13 +242,22 @@ describe('validateIE', () => {
 
     it('should validate alternative IE formats', () => {
       expect(validateIE('2087728666', 'rn')).toBe(true); // 10-digit RN
+      expect(validateIE('2019640180', 'rn')).toBe(true); // 10-digit RN, DV clamped to 0
       expect(validateIE('577972880', 'to')).toBe(true); // 9-digit TO
+    });
+
+    it('should validate IEs that hit special-range / low-sum branches', () => {
+      expect(validateIE('000100102', 'am')).toBe(true); // AM weighted sum < 11
+      expect(validateIE('030098594', 'ap')).toBe(true); // AP body range 3.000.001-3.017.000
+      expect(validateIE('030176168', 'ap')).toBe(true); // AP body range 3.017.001-3.019.022
+      expect(validateIE('101182660', 'go')).toBe(true); // GO body range 10.103.105-10.119.997
     });
 
     it('should reject IEs with invalid prefixes or lengths', () => {
       expect(validateIE('0918614000103', 'df')).toBe(false); // prefix not 07/08
       expect(validateIE('1234567', 'ba')).toBe(false); // wrong length
       expect(validateIE('04035910938', 'to')).toBe(false); // invalid TO prefix
+      expect(validateIE('12345', 'ap')).toBe(false); // wrong length
     });
   });
 });

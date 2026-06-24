@@ -15,10 +15,10 @@ export default defineConfig({
       ],
       // Floor to keep CI from silently regressing; raise as gaps close.
       thresholds: {
-        statements: 95,
-        branches: 88,
+        statements: 97,
+        branches: 90,
         functions: 100,
-        lines: 95,
+        lines: 97,
       },
     },
   },
