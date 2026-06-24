@@ -4,7 +4,7 @@
  * characters.
  * @returns a boolean value.
  */
-export const isRepeated = (ref: string) => {
+export const isRepeated = (ref: string): boolean => {
   for (let i = 1; i < ref.length; i++) {
     if (ref[i] !== ref[0]) {
       return false;

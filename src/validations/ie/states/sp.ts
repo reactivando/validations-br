@@ -11,9 +11,8 @@ function calcFirstDigit(body: string): number {
   for (let i = 0; i < body.length; i++) {
     sum += Number.parseInt(body.charAt(i), 10) * weight[i];
   }
-  const dig = sum % 11;
-  const digit = dig.toString();
-  return Number.parseInt(digit.substring(digit.length - 1), 10);
+  // sum % 11 is 0-10; the SP rule uses its last digit (10 -> 0).
+  return (sum % 11) % 10;
 }
 
 /**
@@ -33,9 +32,8 @@ function calcSecondDigit(body: string): number {
       weight = 10;
     }
   }
-  const dig = sum % 11;
-  const digit = dig.toString();
-  return Number.parseInt(digit.substring(digit.length - 1), 10);
+  // sum % 11 is 0-10; the SP rule uses its last digit (10 -> 0).
+  return (sum % 11) % 10;
 }
 
 /**
