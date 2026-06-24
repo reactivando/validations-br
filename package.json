@@ -26,7 +26,7 @@
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "test:e2e": "pnpm build && cd examples && pnpm install && pnpm start",
+    "test:e2e": "pnpm build && cd examples && pnpm install --ignore-workspace && pnpm start",
     "release": "release-it"
   },
   "devDependencies": {
