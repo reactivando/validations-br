@@ -22,9 +22,8 @@
   ],
   "scripts": {
     "build": "tsdown",
-    "format": "biome format --write ./src",
-    "lint": "biome check ./src",
-    "lint:fix": "biome check --write ./src",
+    "format": "ultracite fix ./src",
+    "lint": "ultracite check ./src",
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "test:e2e": "pnpm build && cd examples && pnpm install --ignore-workspace && pnpm start",
