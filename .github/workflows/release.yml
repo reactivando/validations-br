@@ -39,9 +39,11 @@ jobs:
       - name: Build project
         run: pnpm build
 
+      # Publishing uses npm Trusted Publishing (OIDC) via the `id-token: write`
+      # permission above — no NPM_TOKEN. release-it-pnpm runs `pnpm publish`,
+      # and Node 24 ships npm >= 11.5.1, which is required for OIDC publishing.
       - name: Create Release and Publish
         run: pnpm release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
