@@ -1,5 +1,0 @@
-*.json
-node_modules
-dist
-coverage
-lib

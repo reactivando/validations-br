@@ -14,17 +14,17 @@ export function validateAM(ie: string): boolean {
   }
 
   const body = ieStr.substring(0, 8);
-  const checkDigit = parseInt(ieStr.substring(8, 9), 10);
+  const checkDigit = Number.parseInt(ieStr.substring(8, 9), 10);
 
   let weight = 9;
   let sum = 0;
 
   for (let i = 0; i < body.length; i++) {
-    sum += parseInt(body.charAt(i), 10) * weight;
+    sum += Number.parseInt(body.charAt(i), 10) * weight;
     weight--;
   }
 
-  let calculatedDigit;
+  let calculatedDigit: number;
   if (sum < 11) {
     calculatedDigit = 11 - sum;
   } else {

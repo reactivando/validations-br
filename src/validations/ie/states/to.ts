@@ -13,7 +13,7 @@ export function validateTO(ie: string): boolean {
     return false;
   }
 
-  const checkDigit = parseInt(ieStr.charAt(ieStr.length - 1), 10);
+  const checkDigit = Number.parseInt(ieStr.charAt(ieStr.length - 1), 10);
   let body = '';
 
   // Businesses founded before 2003 have 11-digit IEs
@@ -33,7 +33,7 @@ export function validateTO(ie: string): boolean {
   let sum = 0;
 
   for (let i = 0; i < body.length; i++) {
-    sum += parseInt(body.charAt(i), 10) * weight;
+    sum += Number.parseInt(body.charAt(i), 10) * weight;
     weight--;
   }
 

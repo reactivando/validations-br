@@ -1,11 +1,11 @@
-import { validatePhone } from './validatePhone';
-import { validateEmail } from './validateEmail';
 import { validateCep } from './validateCep';
-import { validateUF } from './validateUF';
+import { validateCNH } from './validateCNH';
 import { validateCNPJ } from './validateCNPJ';
 import { validateCPF } from './validateCPF';
+import { validateEmail } from './validateEmail';
+import { validatePhone } from './validatePhone';
 import { validatePIS } from './validatePIS';
-import { validateCNH } from './validateCNH';
+import { validateUF } from './validateUF';
 
 export const useValidationsBR = (
   type: 'cnpj' | 'cpf' | 'cep' | 'email' | 'pis' | 'phone' | 'uf' | 'cnh',

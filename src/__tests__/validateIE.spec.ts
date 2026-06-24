@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { validateIE } from '../validations/ie';
 
 describe('validateIE', () => {
@@ -120,16 +120,16 @@ describe('validateIE', () => {
         'yY',
         'Zz',
         'a',
-        NaN,
+        Number.NaN,
         {},
         0,
         ['1'],
         String,
       ];
 
-      invalidState.forEach(state =>
-        expect(validateIE('01.132.538/779-100', state)).toBe(false),
-      );
+      for (const state of invalidState) {
+        expect(validateIE('01.132.538/779-100', state)).toBe(false);
+      }
     });
 
     it('should return false for invalid AC IE', () => {

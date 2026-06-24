@@ -19,13 +19,13 @@ export function validateRN(ie: string): boolean {
   }
 
   const body = ieStr.substring(0, length - 1);
-  const checkDigit = parseInt(ieStr.substring(length - 1), 10);
+  const checkDigit = Number.parseInt(ieStr.substring(length - 1), 10);
 
   let weight = length;
   let sum = 0;
 
   for (let i = 0; i < body.length; i++) {
-    sum += parseInt(body.charAt(i), 10) * weight;
+    sum += Number.parseInt(body.charAt(i), 10) * weight;
     weight--;
   }
 

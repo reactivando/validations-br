@@ -24,14 +24,14 @@ export function validateGO(ie: string): boolean {
   }
 
   const body = ieStr.substring(0, 8);
-  const checkDigit = parseInt(ieStr.substring(8, 9), 10);
-  const bodyInt = parseInt(body, 10);
+  const checkDigit = Number.parseInt(ieStr.substring(8, 9), 10);
+  const bodyInt = Number.parseInt(body, 10);
 
   let weight = 9;
   let sum = 0;
 
   for (let i = 0; i < body.length; i++) {
-    sum += parseInt(body.charAt(i), 10) * weight;
+    sum += Number.parseInt(body.charAt(i), 10) * weight;
     weight--;
   }
 
@@ -39,7 +39,11 @@ export function validateGO(ie: string): boolean {
   let calculatedDigit = 11 - rest;
 
   if (calculatedDigit >= 10) {
-    if (calculatedDigit === 11 && bodyInt >= 10103105 && bodyInt <= 10119997) {
+    if (
+      calculatedDigit === 11 &&
+      bodyInt >= 10_103_105 &&
+      bodyInt <= 10_119_997
+    ) {
       calculatedDigit = 1;
     } else {
       calculatedDigit = 0;

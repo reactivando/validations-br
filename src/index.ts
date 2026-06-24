@@ -1,10 +1,10 @@
-export { validatePhone } from './validations/validatePhone';
-export { validateEmail } from './validations/validateEmail';
+export { validateIE } from './validations/ie';
+export { useValidationsBR } from './validations/usevalidationsbr';
 export { validateCep } from './validations/validateCep';
-export { validateUF } from './validations/validateUF';
+export { validateCNH } from './validations/validateCNH';
 export { validateCNPJ } from './validations/validateCNPJ';
 export { validateCPF } from './validations/validateCPF';
-export { validateIE } from './validations/ie';
+export { validateEmail } from './validations/validateEmail';
+export { validatePhone } from './validations/validatePhone';
 export { validatePIS } from './validations/validatePIS';
-export { validateCNH } from './validations/validateCNH';
-export { useValidationsBR } from './validations/usevalidationsbr';
+export { validateUF } from './validations/validateUF';

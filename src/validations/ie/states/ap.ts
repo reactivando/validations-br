@@ -18,16 +18,16 @@ export function validateAP(ie: string): boolean {
   }
 
   const body = ieStr.substring(0, 8);
-  const checkDigit = parseInt(ieStr.substring(8, 9), 10);
-  const bodyInt = parseInt(body, 10);
+  const checkDigit = Number.parseInt(ieStr.substring(8, 9), 10);
+  const bodyInt = Number.parseInt(body, 10);
 
   let p = 0;
   let d = 0;
 
-  if (bodyInt >= 3000001 && bodyInt <= 3017000) {
+  if (bodyInt >= 3_000_001 && bodyInt <= 3_017_000) {
     p = 5;
     d = 0;
-  } else if (bodyInt >= 3017001 && bodyInt <= 3019022) {
+  } else if (bodyInt >= 3_017_001 && bodyInt <= 3_019_022) {
     p = 9;
     d = 1;
   }
@@ -36,7 +36,7 @@ export function validateAP(ie: string): boolean {
   let sum = p;
 
   for (let i = 0; i < body.length; i++) {
-    sum += parseInt(body.charAt(i), 10) * weight;
+    sum += Number.parseInt(body.charAt(i), 10) * weight;
     weight--;
   }
 

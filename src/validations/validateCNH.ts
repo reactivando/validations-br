@@ -17,7 +17,7 @@ export function validateCNH(value: string) {
   let v = 0;
   let j = 9;
   for (let i = 0; i < 9; ++i) {
-    v += parseInt(cnh.charAt(i), 10) * j--;
+    v += Number.parseInt(cnh.charAt(i), 10) * j--;
   }
 
   let dv1 = v % 11;
@@ -30,7 +30,7 @@ export function validateCNH(value: string) {
   v = 0;
   j = 1;
   for (let i = 0; i < 9; ++i) {
-    v += parseInt(cnh.charAt(i), 10) * j++;
+    v += Number.parseInt(cnh.charAt(i), 10) * j++;
   }
 
   let dv2 = v % 11;
@@ -45,6 +45,7 @@ export function validateCNH(value: string) {
   }
 
   return (
-    dv1 === parseInt(cnh.charAt(9), 10) && dv2 === parseInt(cnh.charAt(10), 10)
+    dv1 === Number.parseInt(cnh.charAt(9), 10) &&
+    dv2 === Number.parseInt(cnh.charAt(10), 10)
   );
 }

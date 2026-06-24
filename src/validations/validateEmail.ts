@@ -6,8 +6,9 @@
  * @returns The `validateEmail` function returns a boolean value. It returns `true` if the email is
  * valid, and `false` otherwise.
  */
+const emailRegex =
+  /^[\w!#$%&'*+/=?`{|}~^-]+(?:\.[\w!#$%&'*+/=?`{|}~^-]+)*@(?:[A-Z0-9-]+\.)+[A-Z]{2,10}$/i;
+
 export function validateEmail(value: string): boolean {
-  const regex =
-    /^[\w!#$%&'*+/=?`{|}~^-]+(?:\.[\w!#$%&'*+/=?`{|}~^-]+)*@(?:[A-Z0-9-]+\.)+[A-Z]{2,10}$/i;
-  return regex.test(value);
+  return emailRegex.test(value);
 }

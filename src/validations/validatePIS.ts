@@ -18,6 +18,7 @@ function generateChecksum(base: string | number, weight: number[]): number {
 }
 
 const weights = [3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+const onlyDigitsRegex = /^[0-9]+$/;
 
 /**
  * The function `validatePIS` validates a PIS number, which is a Brazilian social identification
@@ -30,8 +31,13 @@ const weights = [3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
 export function validatePIS(pis: string): boolean {
   const pisStr = String(pis).replace(/\D/g, '');
 
-  if (pisStr.length !== 11 || isRepeated(pisStr) || !/^[0-9]+$/.test(pisStr))
+  if (
+    pisStr.length !== 11 ||
+    isRepeated(pisStr) ||
+    !onlyDigitsRegex.test(pisStr)
+  ) {
     return false;
+  }
 
   const weightedChecksum = generateChecksum(
     pisStr.substring(0, pisStr.length - 1),

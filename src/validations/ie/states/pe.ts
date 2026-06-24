@@ -9,7 +9,7 @@ function calcDigit(body: string): number {
   let weight = body.length + 1;
   let sum = 0;
   for (let i = 0; i < body.length; i++) {
-    sum += parseInt(body.charAt(i), 10) * weight;
+    sum += Number.parseInt(body.charAt(i), 10) * weight;
     weight--;
   }
 
