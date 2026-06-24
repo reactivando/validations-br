@@ -13,14 +13,18 @@ describe('UseValidationBr Cep', () => {
 
 describe('UseValidationBr CNPJ', () => {
   it('should be able return true to valid CNPJ', () => {
+    expect.assertions(2);
+
     expect(useValidationsBR('cnpj', '66.919.381/0001-15')).toBe(true);
+    expect(useValidationsBR('cnpj', '12.ABC.345/01DE-35')).toBe(true);
   });
 
   it('should be able return false to invalid CNPJ', () => {
-    expect.assertions(2);
+    expect.assertions(3);
 
     expect(useValidationsBR('cnpj', '12.732.455/0001-25')).toBe(false);
     expect(useValidationsBR('cnpj', '66.919.381/0001-10')).toBe(false);
+    expect(useValidationsBR('cnpj', '12.ABC.345/01DE-34')).toBe(false);
   });
 
   it('should be able return false to pass a empty string', () => {
