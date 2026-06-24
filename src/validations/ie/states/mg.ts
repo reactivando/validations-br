@@ -10,14 +10,16 @@ function calcFirstDigit(body: string): number {
   let weightedSum = '';
   for (let i = 0; i < bodyWithZero.length; i++) {
     const weight = (i + 1) % 2 === 0 ? 2 : 1;
-    weightedSum += (parseInt(bodyWithZero.charAt(i), 10) * weight).toString();
+    weightedSum += (
+      Number.parseInt(bodyWithZero.charAt(i), 10) * weight
+    ).toString();
   }
   let sum = 0;
   for (let i = 0; i < weightedSum.length; i++) {
-    sum += parseInt(weightedSum.charAt(i), 10);
+    sum += Number.parseInt(weightedSum.charAt(i), 10);
   }
   const sumString = sum.toString();
-  const lastDigit = parseInt(sumString.charAt(sumString.length - 1), 10);
+  const lastDigit = Number.parseInt(sumString.charAt(sumString.length - 1), 10);
 
   return lastDigit === 0 ? 0 : 10 - lastDigit;
 }
@@ -33,7 +35,7 @@ function calcSecondDigit(body: string): number {
   let weight = 3;
   let sum = 0;
   for (let i = 0; i < body.length; i++) {
-    sum += parseInt(body.charAt(i), 10) * weight;
+    sum += Number.parseInt(body.charAt(i), 10) * weight;
     weight--;
     if (weight === 1) {
       weight = 11;

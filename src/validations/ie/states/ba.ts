@@ -6,7 +6,7 @@
  * @returns The function `getModule` returns either 10 or 11, depending on the first digit of the IE.
  */
 function getModule(ie: string): number {
-  const charAt = parseInt(ie.charAt(ie.length === 9 ? 1 : 0), 10);
+  const charAt = Number.parseInt(ie.charAt(ie.length === 9 ? 1 : 0), 10);
   const validModules = [0, 1, 2, 3, 4, 5, 8];
   return validModules.includes(charAt) ? 10 : 11;
 }
@@ -23,7 +23,7 @@ function calcDigit(body: string, mod: number): number {
   let weight = body.length + 1;
   let sum = 0;
   for (let i = 0; i < body.length; i++) {
-    sum += parseInt(body.charAt(i), 10) * weight;
+    sum += Number.parseInt(body.charAt(i), 10) * weight;
     weight--;
   }
   const rest = sum % mod;

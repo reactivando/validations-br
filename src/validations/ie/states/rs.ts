@@ -14,13 +14,13 @@ export function validateRS(ie: string): boolean {
   }
 
   const body = ieStr.substring(0, 9);
-  const checkDigit = parseInt(ieStr.substring(9, 10), 10);
+  const checkDigit = Number.parseInt(ieStr.substring(9, 10), 10);
 
   let weight = 2;
   let sum = 0;
 
   for (let i = 0; i < body.length; i++) {
-    sum += parseInt(body.charAt(i), 10) * weight;
+    sum += Number.parseInt(body.charAt(i), 10) * weight;
     weight--;
     if (weight === 1) {
       weight = 9;

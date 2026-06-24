@@ -1,6 +1,6 @@
 allowBuilds:
   esbuild: true
-  unrs-resolver: true
+  lefthook: true
 
 overrides:
   # release-it pins undici@7.24.5 exactly; advisory needs >=7.28.0, force it.

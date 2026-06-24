@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { validateCep } from '../validations/validateCep';
 
 describe('validateCep', () => {
@@ -18,10 +18,12 @@ describe('validateCep', () => {
   });
 
   it('should return false for invalid parameter type', () => {
-    const parameters = [{}, [], 0, NaN, Boolean, true] as string[];
+    const parameters = [{}, [], 0, Number.NaN, Boolean, true] as string[];
 
     expect.assertions(parameters.length);
 
-    parameters.forEach(parameter => expect(validateCep(parameter)).toBe(false));
+    for (const parameter of parameters) {
+      expect(validateCep(parameter)).toBe(false);
+    }
   });
 });

@@ -18,7 +18,7 @@ export function validateCNPJ(value: string): boolean {
   const calculateDigit = (numbers: string, weights: number[]): number => {
     let sum = 0;
     for (let i = 0; i < numbers.length; i++) {
-      sum += parseInt(numbers.charAt(i), 10) * weights[i];
+      sum += Number.parseInt(numbers.charAt(i), 10) * weights[i];
     }
     const remainder = sum % 11;
     return remainder < 2 ? 0 : 11 - remainder;
@@ -28,7 +28,7 @@ export function validateCNPJ(value: string): boolean {
   const first12 = cnpj.substring(0, 12);
   const dv1 = calculateDigit(first12, weights1);
 
-  if (dv1 !== parseInt(cnpj.charAt(12), 10)) {
+  if (dv1 !== Number.parseInt(cnpj.charAt(12), 10)) {
     return false;
   }
 
@@ -36,5 +36,5 @@ export function validateCNPJ(value: string): boolean {
   const first13 = cnpj.substring(0, 13);
   const dv2 = calculateDigit(first13, weights2);
 
-  return dv2 === parseInt(cnpj.charAt(13), 10);
+  return dv2 === Number.parseInt(cnpj.charAt(13), 10);
 }

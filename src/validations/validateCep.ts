@@ -5,7 +5,8 @@
  * @returns The `validateCep` function returns a boolean value. It returns `true` if the provided `cep`
  * is a valid CEP, and `false` otherwise.
  */
+const cepRegex = /^(\d{8}|\d{5}-\d{3})$/;
+
 export function validateCep(cep: string): boolean {
-  const regex = /^([\d]{8}|[\d]{5}-[\d]{3})$/;
-  return typeof cep === 'string' && regex.test(cep);
+  return typeof cep === 'string' && cepRegex.test(cep);
 }

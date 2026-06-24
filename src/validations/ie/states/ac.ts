@@ -8,13 +8,13 @@
 function calcDigit(body: string): number {
   let weight = body.length - 7;
   let sum = 0;
-  body.split('').forEach(digit => {
+  for (const digit of body) {
     sum += +digit * weight;
     weight--;
     if (weight === 1) {
       weight = 9;
     }
-  });
+  }
   const mod = 11;
   const rest = sum % mod;
   let dig = mod - rest;
@@ -35,9 +35,13 @@ function calcDigit(body: string): number {
 export function validateAC(ie: string): boolean {
   const ieStr = String(ie).replace(/\D/g, '');
 
-  if (ieStr.length !== 13) return false;
+  if (ieStr.length !== 13) {
+    return false;
+  }
 
-  if (ieStr.substring(0, 2) !== '01') return false;
+  if (ieStr.substring(0, 2) !== '01') {
+    return false;
+  }
 
   const body = ieStr.substring(0, 11);
   const firstDigit = calcDigit(body);

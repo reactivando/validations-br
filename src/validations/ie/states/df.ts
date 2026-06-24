@@ -8,13 +8,13 @@
 function calcDigit(body: string): number {
   let weight = body.length - 7;
   let sum = 0;
-  body.split('').forEach(digit => {
+  for (const digit of body) {
     sum += +digit * weight;
     weight--;
     if (weight === 1) {
       weight = 9;
     }
-  });
+  }
 
   const mod = 11;
   const rest = sum % mod;

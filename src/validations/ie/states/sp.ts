@@ -9,11 +9,11 @@ function calcFirstDigit(body: string): number {
   const weight = [1, 3, 4, 5, 6, 7, 8, 10];
   let sum = 0;
   for (let i = 0; i < body.length; i++) {
-    sum += parseInt(body.charAt(i), 10) * weight[i];
+    sum += Number.parseInt(body.charAt(i), 10) * weight[i];
   }
   const dig = sum % 11;
   const digit = dig.toString();
-  return parseInt(digit.substring(digit.length - 1), 10);
+  return Number.parseInt(digit.substring(digit.length - 1), 10);
 }
 
 /**
@@ -27,7 +27,7 @@ function calcSecondDigit(body: string): number {
   let weight = 3;
   let sum = 0;
   for (let i = 0; i < body.length; i++) {
-    sum += parseInt(body.charAt(i), 10) * weight;
+    sum += Number.parseInt(body.charAt(i), 10) * weight;
     weight--;
     if (weight === 1) {
       weight = 10;
@@ -35,7 +35,7 @@ function calcSecondDigit(body: string): number {
   }
   const dig = sum % 11;
   const digit = dig.toString();
-  return parseInt(digit.substring(digit.length - 1), 10);
+  return Number.parseInt(digit.substring(digit.length - 1), 10);
 }
 
 /**
@@ -53,8 +53,8 @@ export function validateSP(ie: string): boolean {
     return false;
   }
 
-  const firstCheckDigit = parseInt(ieStr.charAt(8), 10);
-  const secondCheckDigit = parseInt(ieStr.charAt(11), 10);
+  const firstCheckDigit = Number.parseInt(ieStr.charAt(8), 10);
+  const secondCheckDigit = Number.parseInt(ieStr.charAt(11), 10);
 
   const firstCalculatedDigit = calcFirstDigit(ieStr.substring(0, 8));
   const secondCalculatedDigit = calcSecondDigit(ieStr.substring(0, 11));

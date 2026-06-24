@@ -1,0 +1,64 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "extends": ["ultracite/biome/core", "ultracite/biome/vitest"],
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "includes": ["src/**", "!**/lib", "!**/coverage"]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 80
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "trailingCommas": "all",
+      "arrowParentheses": "asNeeded",
+      "semicolons": "always"
+    }
+  },
+  "linter": {
+    "rules": {
+      "style": {
+        // ESLint config left default-export preference unset.
+        "noDefaultExport": "off",
+        // The checksum logic uses String.prototype.substring (not the
+        // deprecated substr); converting to slice changes edge-case
+        // semantics, so keep substring in this validation library.
+        "noSubstr": "off",
+        // Files are named after their exported validator (validateCPF.ts);
+        // renaming would break the public import paths and git history.
+        "useFilenamingConvention": "off",
+        // tsconfig targets es2016; String.prototype.at() is es2022, so keep
+        // charAt(length - 1) for runtime compatibility of the published lib.
+        "useAtIndex": "off"
+      },
+      "performance": {
+        // src/index.ts and ie/index.ts are intentional public-API barrels.
+        "noBarrelFile": "off"
+      }
+    }
+  },
+  "overrides": [
+    {
+      // ie/index.ts builds a UF->validator registry by name from the states
+      // module; the namespace import + dynamic access is the intended shape.
+      "includes": ["src/validations/ie/index.ts"],
+      "linter": {
+        "rules": {
+          "performance": {
+            "noNamespaceImport": "off",
+            "noDynamicNamespaceImportAccess": "off"
+          }
+        }
+      }
+    }
+  ]
+}
