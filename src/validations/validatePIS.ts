@@ -12,13 +12,14 @@ import { isRepeated } from './utils';
 function generateChecksum(base: string | number, weight: number[]): number {
   const digits = String(base).replace(/[^\d]/g, '');
 
-  return digits
-    .split('')
-    .reduce((acc, digit, i) => acc + +digit * weight[i], 0);
+  let sum = 0;
+  for (let i = 0; i < digits.length; i++) {
+    sum += +digits[i] * weight[i];
+  }
+  return sum;
 }
 
 const weights = [3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
-const onlyDigitsRegex = /^[0-9]+$/;
 
 /**
  * The function `validatePIS` validates a PIS number, which is a Brazilian social identification
@@ -31,11 +32,7 @@ const onlyDigitsRegex = /^[0-9]+$/;
 export function validatePIS(pis: string): boolean {
   const pisStr = String(pis).replace(/\D/g, '');
 
-  if (
-    pisStr.length !== 11 ||
-    isRepeated(pisStr) ||
-    !onlyDigitsRegex.test(pisStr)
-  ) {
+  if (pisStr.length !== 11 || isRepeated(pisStr)) {
     return false;
   }
 

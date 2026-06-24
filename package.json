@@ -2,12 +2,31 @@
   "name": "validations-br",
   "version": "1.6.1",
   "packageManager": "pnpm@11.9.0",
-  "description": "A validator to BR informations",
+  "description": "Validators for Brazilian documents (CPF, CNPJ, CNH, PIS, CEP, IE, phone, UF, email)",
   "main": "lib/index.cjs",
   "module": "lib/index.mjs",
-  "types": "lib/index.d.ts",
-  "repository": "https://github.com/reactivando/validations-br.git",
+  "types": "lib/index.d.cts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./lib/index.d.mts",
+        "default": "./lib/index.mjs"
+      },
+      "require": {
+        "types": "./lib/index.d.cts",
+        "default": "./lib/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reactivando/validations-br.git"
+  },
   "homepage": "https://github.com/reactivando/validations-br#readme",
+  "bugs": {
+    "url": "https://github.com/reactivando/validations-br/issues"
+  },
   "author": "Reactivando <reactivando2@gmail.com>",
   "keywords": [
     "BR",
@@ -17,6 +36,12 @@
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "provenance": true
+  },
   "files": [
     "lib/**/*"
   ],

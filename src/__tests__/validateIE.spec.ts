@@ -223,4 +223,41 @@ describe('validateIE', () => {
       expect(validateIE('2703591093-88', 'to')).toBe(false);
     });
   });
+
+  describe('edge cases and check-digit clamp branches', () => {
+    // For these states a check digit of 0 can only result from the
+    // "remainder produced a digit >= 10, clamp to 0" branch, so these
+    // valid IEs exercise that otherwise-untested path.
+    it('should validate IEs whose check digit is clamped to 0', () => {
+      expect(validateIE('46665520', 'rj')).toBe(true);
+      expect(validateIE('7612174970', 'rs')).toBe(true);
+      expect(validateIE('11182758180', 'mt')).toBe(true);
+      expect(validateIE('1915451760', 'pr')).toBe(true);
+      expect(validateIE('8211755960110', 'mg')).toBe(true);
+      expect(validateIE('234682540', 'pe')).toBe(true);
+      expect(validateIE('565343050', 'al')).toBe(true);
+      expect(validateIE('100060030', 'go')).toBe(true);
+      expect(validateIE('20809775296850', 'ro')).toBe(true);
+    });
+
+    it('should validate alternative IE formats', () => {
+      expect(validateIE('2087728666', 'rn')).toBe(true); // 10-digit RN
+      expect(validateIE('2019640180', 'rn')).toBe(true); // 10-digit RN, DV clamped to 0
+      expect(validateIE('577972880', 'to')).toBe(true); // 9-digit TO
+    });
+
+    it('should validate IEs that hit special-range / low-sum branches', () => {
+      expect(validateIE('000100102', 'am')).toBe(true); // AM weighted sum < 11
+      expect(validateIE('030098594', 'ap')).toBe(true); // AP body range 3.000.001-3.017.000
+      expect(validateIE('030176168', 'ap')).toBe(true); // AP body range 3.017.001-3.019.022
+      expect(validateIE('101182660', 'go')).toBe(true); // GO body range 10.103.105-10.119.997
+    });
+
+    it('should reject IEs with invalid prefixes or lengths', () => {
+      expect(validateIE('0918614000103', 'df')).toBe(false); // prefix not 07/08
+      expect(validateIE('1234567', 'ba')).toBe(false); // wrong length
+      expect(validateIE('04035910938', 'to')).toBe(false); // invalid TO prefix
+      expect(validateIE('12345', 'ap')).toBe(false); // wrong length
+    });
+  });
 });

@@ -46,7 +46,7 @@ pnpm add validations-br
 
 | Chave |                         Tipo                         |                         Descrição |
 | :---- | :--------------------------------------------------: | --------------------------------: |
-| type  | `cnpj \| cpf  \| cep \| email \| pis \| phone \| uf` | Tipo de dados que serão validados |
+| type  | `cnpj \| cpf \| cnh \| cep \| email \| pis \| phone \| uf` | Tipo de dados que serão validados |
 | value |                       `string`                       |           Valor que será validado |
 
 ```js
@@ -66,6 +66,13 @@ import { validateCNPJ } from 'validations-br';
 
 const cnpj = '09.015.844/0001-80';
 const isValid = validateCNPJ(cnpj);
+```
+
+Também há suporte ao novo formato **alfanumérico** de CNPJ da Receita Federal
+(12 posições alfanuméricas em maiúsculas + 2 dígitos verificadores numéricos):
+
+```js
+validateCNPJ('12.ABC.345/01DE-35'); // true
 ```
 
 ## Validar CPF
@@ -121,11 +128,11 @@ const isValid = validatePhone(phone);
 ## Validar CEP
 
 ```js
-import { validateCEP } from 'validations-br';
-// const { validateCEP } = require('validations-br');
+import { validateCep } from 'validations-br';
+// const { validateCep } = require('validations-br');
 
 const cep = '17280-000';
-const isValid = validateCEP(cep);
+const isValid = validateCep(cep);
 ```
 
 ## Validar UF

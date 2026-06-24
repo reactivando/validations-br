@@ -6,4 +6,5 @@ export default defineConfig({
   format: ['esm', 'cjs'],
   dts: true,
   unbundle: true,
+  clean: true,
 });

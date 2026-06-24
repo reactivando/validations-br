@@ -4,9 +4,13 @@
  * characters.
  * @returns a boolean value.
  */
-export const isRepeated = (ref: string) => {
-  const ret = ref.replace(new RegExp(ref[0], 'g'), '').trim().length === 0;
-  return ret;
+export const isRepeated = (ref: string): boolean => {
+  for (let i = 1; i < ref.length; i++) {
+    if (ref[i] !== ref[0]) {
+      return false;
+    }
+  }
+  return true;
 };
 
 /**

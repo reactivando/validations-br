@@ -13,6 +13,13 @@ export default defineConfig({
         'src/validations/ie/index.ts',
         'src/index.ts',
       ],
+      // Floor to keep CI from silently regressing; raise as gaps close.
+      thresholds: {
+        statements: 97,
+        branches: 90,
+        functions: 100,
+        lines: 97,
+      },
     },
   },
 });
